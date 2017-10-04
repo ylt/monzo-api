@@ -1182,6 +1182,83 @@ Monzo Undocumented API
 | ---- | ----------- |
 | 200 | Success |
 
+### /tax-residency/no-tin
+---
+##### ***POST***
+**Parameters**
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| country_code | formData |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+### /tax-residency/status
+---
+##### ***GET***
+**Parameters**
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+### /tax-residency/submit
+---
+##### ***POST***
+**Parameters**
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+### /tax-residency/update-self-certification
+---
+##### ***POST***
+**Parameters**
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| from_summary_screen | formData |  | No | boolean |
+| us_citizen | formData |  | No | boolean |
+| country_codes[] | formData |  | No | [ string ] |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+### /tax-residency/update-tin
+---
+##### ***POST***
+**Parameters**
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| country_code | formData |  | No | string |
+| type | formData |  | No | string |
+| value | formData |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
 ### /topup/limits
 ---
 ##### ***GET***

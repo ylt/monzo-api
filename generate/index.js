@@ -114,14 +114,15 @@ function parse(path, ptags) {
     }
 }
 
-parse('./apk/co/uk/getmondo/api/MonzoApi.java', ['MonzoApi']);
-parse('./apk/co/uk/getmondo/api/MonzoSignUpApi.java', ['MonzoSignUpApi']);
-parse('./apk/co/uk/getmondo/api/MonzoPaymentsApi.java', ['MonzoPaymentsApi']);
-parse('./apk/co/uk/getmondo/api/MonzoIdentityVerificationApi.java', ['MonzoIdentityVerificationApi']);
-// parse('./apk/co/uk/getmondo/api/MonzoAnalyticsApi.java', 'MonzoAnalyticsApi');
-parse('./apk/co/uk/getmondo/api/HelpApi.java', ['HelpApi']);
-parse('./apk/co/uk/getmondo/api/ServiceStatusApi.java', ['ServiceStatusApi']);
 parse('./apk/co/uk/getmondo/api/authentication/MonzoOAuthApi.java', ['MonzoOAuthApi']);
+parse('./apk/co/uk/getmondo/api/HelpApi.java', ['HelpApi']);
+// parse('./apk/co/uk/getmondo/api/MonzoAnalyticsApi.java', 'MonzoAnalyticsApi');
+parse('./apk/co/uk/getmondo/api/MonzoApi.java', ['MonzoApi']);
+parse('./apk/co/uk/getmondo/api/MonzoIdentityVerificationApi.java', ['MonzoIdentityVerificationApi']);
+parse('./apk/co/uk/getmondo/api/MonzoPaymentsApi.java', ['MonzoPaymentsApi']);
+parse('./apk/co/uk/getmondo/api/MonzoSignUpApi.java', ['MonzoSignUpApi']);
+parse('./apk/co/uk/getmondo/api/MonzoTaxResidencyApi.java', ['MonzoTaxResidencyApi']);
+parse('./apk/co/uk/getmondo/api/ServiceStatusApi.java', ['ServiceStatusApi']);
 
 
 console.log(yaml.safeDump(

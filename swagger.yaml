@@ -1313,6 +1313,84 @@ paths:
       responses:
         '200':
           description: Success
+  /tax-residency/no-tin:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: &ref_6
+        - MonzoTaxResidencyApi
+      parameters:
+        - in: formData
+          name: country_code
+          type: string
+      responses:
+        '200':
+          description: Success
+  /tax-residency/status:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_6
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /tax-residency/submit:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_6
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /tax-residency/update-self-certification:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_6
+      parameters:
+        - in: formData
+          name: from_summary_screen
+          type: boolean
+        - in: formData
+          name: us_citizen
+          type: boolean
+        - in: formData
+          name: 'country_codes[]'
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /tax-residency/update-tin:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_6
+      parameters:
+        - in: formData
+          name: country_code
+          type: string
+        - in: formData
+          name: type
+          type: string
+        - in: formData
+          name: value
+          type: string
+      responses:
+        '200':
+          description: Success
   /topup/limits:
     get:
       produces:
