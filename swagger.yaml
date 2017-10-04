@@ -1,0 +1,1347 @@
+swagger: '2.0'
+info:
+  description: ''
+  version: 1.0.0
+  title: Monzo Undocumented API
+host: api.monzo.com
+basePath: /
+tags:
+  - name: Account
+    description: ''
+  - name: Topup
+    description: ''
+  - name: user
+    description: ''
+schemes:
+  - https
+paths:
+  /account-settings:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: &ref_0
+        - MonzoApi
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: magstripe_atm_enabled
+          type: boolean
+      responses:
+        '200':
+          description: Success
+  /accounts:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_type
+          type: string
+      responses:
+        '200':
+          description: Success
+  /api/v2/incidents/unresolved.json:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags:
+        - ServiceStatusApi
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /attachment/deregister:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /attachment/register:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: external_id
+          type: string
+        - in: formData
+          name: file_url
+          type: string
+      responses:
+        '200':
+          description: Success
+  /attachment/upload:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: file_name
+          type: string
+        - in: formData
+          name: file_type
+          type: string
+      responses:
+        '200':
+          description: Success
+  /bacs-direct-debits/instructions:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: &ref_1
+        - MonzoPaymentsApi
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/bacs-direct-debits/instructions/{direct_debit_id}/cancel':
+    put:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_1
+      parameters:
+        - in: path
+          name: direct_debit_id
+          type: string
+          required: true
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: challenge_type
+          type: string
+        - in: formData
+          name: challenge
+          type: string
+        - in: formData
+          name: idempotency_key
+          type: string
+      responses:
+        '200':
+          description: Success
+  /balance:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /balance/limits:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /card-activation/activate:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: card_token
+          type: string
+      responses:
+        '200':
+          description: Success
+  /card-dispatch/status:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /card-replacement/activate:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: old_card_id
+          type: string
+        - in: formData
+          name: new_card_token
+          type: string
+      responses:
+        '200':
+          description: Success
+  /card-replacement/order:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: card_id
+          type: string
+        - in: formData
+          name: 'address[street_address][]'
+          type: array
+          items:
+            type: string
+        - in: formData
+          name: 'address[locality]'
+          type: string
+        - in: formData
+          name: 'address[administrative_area]'
+          type: string
+        - in: formData
+          name: 'address[postal_code]'
+          type: string
+        - in: formData
+          name: 'address[country]'
+          type: string
+      responses:
+        '200':
+          description: Success
+  /card/list:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /card/toggle:
+    put:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: card_id
+          type: string
+        - in: formData
+          name: status
+          type: string
+      responses:
+        '200':
+          description: Success
+  /config:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /contact-discovery/query:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: 'hash[][phone]'
+          type: string
+      responses:
+        '200':
+          description: Success
+  /faster-payments/create:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_1
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: amount
+          type: number
+        - in: formData
+          name: currency
+          type: string
+        - in: formData
+          name: beneficiary_account_number
+          type: string
+        - in: formData
+          name: beneficiary_sort_code
+          type: string
+        - in: formData
+          name: beneficiary_customer_name
+          type: string
+        - in: formData
+          name: idempotency_key
+          type: string
+        - in: formData
+          name: challenge_type
+          type: string
+        - in: formData
+          name: challenge
+          type: string
+        - in: formData
+          name: reference
+          type: string
+      responses:
+        '200':
+          description: Success
+  /fcm/register:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: device_token
+          type: string
+        - in: formData
+          name: app_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /feed:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+        - in: query
+          name: start_time
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/feed/{id}':
+    delete:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Success
+  /geocode/postal-code-lookup:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: postal_code
+          type: string
+        - in: query
+          name: country
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/golden-ticket/{id}':
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Success
+  '/help/content/categories/{id}':
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: &ref_2
+        - HelpApi
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Success
+  /help/content/search:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_2
+      parameters:
+        - in: query
+          name: q
+          type: string
+      responses:
+        '200':
+          description: Success
+  /help/content/trending:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_2
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /identity-verification/register-identity-document:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: &ref_3
+        - MonzoIdentityVerificationApi
+      parameters:
+        - in: query
+          name: source
+          type: string
+        - in: formData
+          name: type
+          type: string
+        - in: formData
+          name: issuing_country
+          type: string
+        - in: formData
+          name: system_camera_used
+          type: boolean
+        - in: formData
+          name: primary_image_file_id
+          type: string
+        - in: formData
+          name: secondary_image_file_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /identity-verification/register-selfie-video:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_3
+      parameters:
+        - in: query
+          name: source
+          type: string
+        - in: formData
+          name: file_id
+          type: string
+        - in: formData
+          name: system_camera_used
+          type: boolean
+      responses:
+        '200':
+          description: Success
+  /identity-verification/request-file-upload:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_3
+      parameters:
+        - in: query
+          name: source
+          type: string
+        - in: formData
+          name: type
+          type: string
+        - in: formData
+          name: file_name
+          type: string
+        - in: formData
+          name: content_type
+          type: string
+        - in: formData
+          name: content_length
+          type: number
+      responses:
+        '200':
+          description: Success
+  /identity-verification/status:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_3
+      parameters:
+        - in: query
+          name: source
+          type: string
+      responses:
+        '200':
+          description: Success
+  /identity-verification/submit:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_3
+      parameters:
+        - in: query
+          name: source
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/intercom/tokens/{intercom_app_id}':
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: path
+          name: intercom_app_id
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Success
+  /kyc/register:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_3
+      parameters:
+        - in: formData
+          name: file_url
+          type: string
+        - in: formData
+          name: group_id
+          type: string
+        - in: formData
+          name: evidence_type
+          type: string
+      responses:
+        '200':
+          description: Success
+  /kyc/status:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_3
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /kyc/upload:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_3
+      parameters:
+        - in: formData
+          name: file_name
+          type: string
+        - in: formData
+          name: file_type
+          type: string
+      responses:
+        '200':
+          description: Success
+  /news:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /p2p/recipients:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_1
+      parameters:
+        - in: formData
+          name: 'candidate[0][username]'
+          type: string
+      responses:
+        '200':
+          description: Success
+  /p2p/transfer:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_1
+      parameters:
+        - in: formData
+          name: recipient
+          type: string
+        - in: formData
+          name: recipient_type
+          type: string
+        - in: formData
+          name: amount
+          type: number
+        - in: formData
+          name: currency
+          type: string
+        - in: formData
+          name: challenge_type
+          type: string
+        - in: formData
+          name: challenge
+          type: string
+        - in: formData
+          name: dedupe_id
+          type: string
+        - in: formData
+          name: notes
+          type: string
+      responses:
+        '200':
+          description: Success
+  /payee/validate:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_1
+      parameters:
+        - in: query
+          name: account_number
+          type: string
+        - in: query
+          name: sort_code
+          type: string
+      responses:
+        '200':
+          description: Success
+  /phone/check-code:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: phone_number
+          type: string
+        - in: formData
+          name: code
+          type: string
+      responses:
+        '200':
+          description: Success
+  /phone/send-code:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: phone_number
+          type: string
+      responses:
+        '200':
+          description: Success
+  /pin/sms:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: date_of_birth
+          type: string
+      responses:
+        '200':
+          description: Success
+  /pin/sms_blocked:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /scheduled-payments/series:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_1
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /scheduled-payments/series/fps:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_1
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: amount
+          type: number
+        - in: formData
+          name: currency
+          type: string
+        - in: formData
+          name: beneficiary_account_number
+          type: string
+        - in: formData
+          name: beneficiary_sort_code
+          type: string
+        - in: formData
+          name: beneficiary_customer_name
+          type: string
+        - in: formData
+          name: idempotency_key
+          type: string
+        - in: formData
+          name: challenge_type
+          type: string
+        - in: formData
+          name: challenge
+          type: string
+        - in: formData
+          name: reference
+          type: string
+        - in: formData
+          name: start_date
+          type: string
+        - in: formData
+          name: interval_type
+          type: string
+        - in: formData
+          name: end_date
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/scheduled-payments/series/{series_id}':
+    delete:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_1
+      parameters:
+        - in: path
+          name: series_id
+          type: string
+          required: true
+        - in: query
+          name: account_id
+          type: string
+        - in: query
+          name: challenge_type
+          type: string
+        - in: query
+          name: challenge
+          type: string
+        - in: query
+          name: idempotency_key
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: source
+          type: string
+        - in: formData
+          name: v2_enabled
+          type: boolean
+      responses:
+        '200':
+          description: Success
+  /signup/apply:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: source
+          type: string
+        - in: formData
+          name: v2_enabled
+          type: boolean
+        - in: formData
+          name: 'address[street_address][]'
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup/create:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: source
+          type: string
+        - in: formData
+          name: 'address[street_address][]'
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup/legal-documents/accept:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: &ref_4
+        - MonzoSignUpApi
+      parameters:
+        - in: formData
+          name: terms_and_conditions_accepted
+          type: boolean
+        - in: formData
+          name: terms_and_conditions_version
+          type: string
+        - in: formData
+          name: privacy_policy_accepted
+          type: boolean
+        - in: formData
+          name: privacy_policy_version
+          type: string
+        - in: formData
+          name: fscs_information_sheet_accepted
+          type: boolean
+        - in: formData
+          name: fscs_information_sheet_version
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup/legal-documents/documents:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_4
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /signup/marketing/subscribe:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters:
+        - in: formData
+          name: opt_in
+          type: boolean
+        - in: formData
+          name: opt_out
+          type: boolean
+      responses:
+        '200':
+          description: Success
+  /signup/personal-account/card-order/create:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters:
+        - in: formData
+          name: name_type
+          type: string
+        - in: formData
+          name: pin_type
+          type: string
+        - in: formData
+          name: pin
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup/personal-account/card-order/options:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_4
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /signup/personal-account/start:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /signup/personal-account/status:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_4
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /signup/profile:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_4
+      parameters: []
+      responses:
+        '200':
+          description: Success
+    put:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters:
+        - in: formData
+          name: legal_name
+          type: string
+        - in: formData
+          name: preferred_name
+          type: string
+        - in: formData
+          name: date_of_birth
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup/profile/address:
+    put:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters:
+        - in: formData
+          name: address_id
+          type: string
+        - in: formData
+          name: 'address_lines[]'
+          type: string
+        - in: formData
+          name: administrative_area
+          type: string
+        - in: formData
+          name: postal_code
+          type: string
+        - in: formData
+          name: country_code
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup/profile/address/search:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_4
+      parameters:
+        - in: query
+          name: country_code
+          type: string
+        - in: query
+          name: postal_code
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup/profile/commit:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /signup/profile/phone/send:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters:
+        - in: formData
+          name: phone_number
+          type: string
+      responses:
+        '200':
+          description: Success
+  /signup/profile/phone/verify:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters:
+        - in: formData
+          name: phone_number
+          type: string
+        - in: formData
+          name: code
+          type: string
+      responses:
+        '200':
+          description: Success
+  /stripe/cards:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: stripe_token
+          type: string
+        - in: formData
+          name: iin
+          type: string
+        - in: formData
+          name: save
+          type: boolean
+        - in: formData
+          name: idempotency_key
+          type: string
+      responses:
+        '200':
+          description: Success
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /stripe/three_d_secure:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: currency
+          type: string
+        - in: formData
+          name: amount
+          type: number
+        - in: formData
+          name: is_initial
+          type: boolean
+        - in: formData
+          name: stripe_card_id
+          type: string
+        - in: formData
+          name: return_url
+          type: string
+        - in: formData
+          name: idempotency_key
+          type: string
+      responses:
+        '200':
+          description: Success
+  /stripe/top_up:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: account_id
+          type: string
+        - in: formData
+          name: stripe_source
+          type: string
+        - in: formData
+          name: currency
+          type: string
+        - in: formData
+          name: amount
+          type: number
+        - in: formData
+          name: is_initial
+          type: boolean
+        - in: formData
+          name: three_d_secure_decision
+          type: string
+        - in: formData
+          name: idempotency_key
+          type: string
+      responses:
+        '200':
+          description: Success
+  /topup/limits:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /topup/status:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters:
+        - in: query
+          name: account_id
+          type: string
+      responses:
+        '200':
+          description: Success
+  /transactions/update-metadata:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: transaction_id
+          type: string
+        - in: formData
+          name: 'metadata[notes]'
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/transactions/{transaction_id}':
+    patch:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: path
+          name: transaction_id
+          type: string
+          required: true
+        - in: formData
+          name: category
+          type: string
+      responses:
+        '200':
+          description: Success
+  /user-settings:
+    put:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters:
+        - in: formData
+          name: p2p_enabled
+          type: boolean
+      responses:
+        '200':
+          description: Success
+  /waitlist:
+    get:
+      produces:
+        - application/json
+      consumes: []
+      tags: *ref_0
+      parameters: []
+      responses:
+        '200':
+          description: Success
+  /waitlist/signup:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_0
+      parameters: []
+      responses:
+        '200':
+          description: Success
+securityDefinitions: {}
+definitions: {}
+
