@@ -29,6 +29,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiAccountSettings'
     put:
       produces:
         - application/json
@@ -45,6 +47,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiAccountSettings'
   /accounts:
     get:
       produces:
@@ -58,6 +62,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiAccounts'
   /api/v2/incidents/unresolved.json:
     get:
       produces:
@@ -177,6 +183,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiBalance'
   /balance/limits:
     get:
       produces:
@@ -190,6 +198,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiBalanceLimits'
   /card-activation/activate:
     post:
       produces:
@@ -220,6 +230,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiCardDispatchStatus'
   /card-replacement/activate:
     post:
       produces:
@@ -271,6 +283,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiCardReplacementOrder'
   /card/list:
     get:
       produces:
@@ -311,6 +325,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiConfig'
   /contact-discovery/query:
     get:
       produces:
@@ -398,6 +414,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiFeedResponse'
   '/feed/{id}':
     delete:
       produces:
@@ -412,6 +430,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiFeedItem'
   /geocode/postal-code-lookup:
     get:
       produces:
@@ -442,6 +462,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiGoldenTicket'
   '/help/content/categories/{id}':
     get:
       produces:
@@ -457,6 +479,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/Section'
   /help/content/search:
     get:
       produces:
@@ -470,6 +494,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/SearchQuery'
   /help/content/trending:
     get:
       produces:
@@ -597,6 +623,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiIntercomToken'
   /kyc/register:
     post:
       produces:
@@ -654,6 +682,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiNews'
   /oauth2/authorize:
     post:
       produces:
@@ -721,6 +751,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiToken'
   /p2p/recipients:
     post:
       produces:
@@ -834,6 +866,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiPinSms'
   /pin/sms_blocked:
     get:
       produces:
@@ -1237,6 +1271,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiStripeCards'
     get:
       produces:
         - application/json
@@ -1249,6 +1285,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiStripeCards'
   /stripe/three_d_secure:
     post:
       produces:
@@ -1281,6 +1319,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiThreeDsResponse'
   /stripe/top_up:
     post:
       produces:
@@ -1404,6 +1444,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiTopUpLimits'
   /topup/status:
     get:
       produces:
@@ -1452,6 +1494,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiTransaction'
   /user-settings:
     put:
       produces:
@@ -1466,6 +1510,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiUserSettings'
   /waitlist:
     get:
       produces:
@@ -1476,6 +1522,8 @@ paths:
       responses:
         '200':
           description: Success
+          schema:
+            $ref: '#definitions/ApiAttachment'
   /waitlist/signup:
     post:
       produces:
@@ -1495,7 +1543,8 @@ definitions:
       accountNumber:
         type: string
       created:
-        type: object
+        type: string
+        format: date
       description:
         type: string
       id:
@@ -1504,13 +1553,6 @@ definitions:
         type: string
       type:
         type: string
-  ApiAccountSettings:
-    type: object
-    properties:
-      magstripeAtmEnabled:
-        type: boolean
-      magstripeAtmEnabledFor:
-        type: number
   ApiAccounts:
     type: object
     properties:
@@ -1552,28 +1594,13 @@ definitions:
           type: object
       spendToday:
         type: number
-  ApiCard:
+  ApiAccountSettings:
     type: object
     properties:
-      expires:
-        type: string
-      id:
-        type: string
-      lastDigits:
-        type: string
-      processorToken:
-        type: string
-      replacementOrdered:
+      magstripeAtmEnabled:
+        type: boolean
+      magstripeAtmEnabledFor:
         type: number
-      status:
-        type: string
-  ApiCardDispatchStatus:
-    type: object
-    properties:
-      estimatedDeliveryDate:
-        type: object
-      status:
-        type: object
   ApiBalanceLimits:
     type: object
     properties:
@@ -1620,17 +1647,42 @@ definitions:
       verificationType:
         type: object
         $ref: '#definitions/VerificationType'
-  ApiCardReplacementOrder:
+  ApiCard:
+    type: object
+    properties:
+      expires:
+        type: string
+      id:
+        type: string
+      lastDigits:
+        type: string
+      processorToken:
+        type: string
+      replacementOrdered:
+        type: number
+      status:
+        type: string
+  ApiCardDispatchStatus:
     type: object
     properties:
       estimatedDeliveryDate:
+        type: string
+        format: date
+      status:
         type: object
+        description: '*TODO: inner class refs'
   ApiCardResponse:
     type: object
     properties:
       card:
         type: object
         $ref: '#definitions/ApiCard'
+  ApiCardReplacementOrder:
+    type: object
+    properties:
+      estimatedDeliveryDate:
+        type: string
+        format: date
   ApiCardsResponse:
     type: object
     properties:
@@ -1638,33 +1690,6 @@ definitions:
         type: array
         items:
           type: object
-  ApiConfig:
-    type: object
-    properties:
-      featureFlags:
-        type: object
-      inboundP2p:
-        type: object
-      p2p:
-        type: object
-      sddSplashscreen:
-        type: string
-      username:
-        type: object
-      isIdentityVerificationHelpEnabled:
-        type: boolean
-      enabled:
-        type: boolean
-      max:
-        type: object
-      min:
-        type: object
-      reason:
-        type: string
-      primary:
-        type: string
-      status:
-        type: string
   ApiCodeCheckResult:
     type: object
     properties:
@@ -1672,11 +1697,43 @@ definitions:
         type: boolean
       reason:
         type: string
+  ApiConfig:
+    type: object
+    properties:
+      featureFlags:
+        type: object
+        description: '*TODO: inner class refs'
+      inboundP2p:
+        type: object
+        description: '*TODO: inner class refs'
+      p2p:
+        type: object
+        description: '*TODO: inner class refs'
+      sddSplashscreen:
+        type: string
+      username:
+        type: object
+        description: '*TODO: inner class refs'
+      isIdentityVerificationHelpEnabled:
+        type: boolean
+      enabled:
+        type: boolean
+      max:
+        type: integer
+      min:
+        type: integer
+      reason:
+        type: string
+      primary:
+        type: string
+      status:
+        type: string
   ApiContactDiscovery:
     type: object
     properties:
       phone:
         type: object
+        description: 'Unknown type: Map'
   ApiGoldenTicket:
     type: object
     properties:
@@ -1684,6 +1741,7 @@ definitions:
         type: string
       status:
         type: object
+        description: '*TODO: inner class refs'
       ticketId:
         type: string
       uri:
@@ -1722,7 +1780,8 @@ definitions:
     type: object
     properties:
       expires:
-        type: object
+        type: string
+        format: date
       id:
         type: string
       title:
@@ -1757,7 +1816,7 @@ definitions:
       userId:
         type: string
       userNumber:
-        type: object
+        type: integer
   ApiToken:
     type: object
     properties:
@@ -1788,7 +1847,7 @@ definitions:
     type: object
     properties:
       after:
-        type: object
+        type: integer
       events:
         type: array
         items:
@@ -1798,9 +1857,9 @@ definitions:
       ineligible:
         type: boolean
       position:
-        type: object
+        type: integer
       referralBump:
-        type: object
+        type: integer
       referralLink:
         type: string
       userId:
@@ -1833,7 +1892,7 @@ definitions:
     type: object
     properties:
       descriptionResId:
-        type: object
+        type: integer
       dueDiligenceLevel:
         type: string
   a:
@@ -1845,87 +1904,12 @@ definitions:
   c:
     type: object
     properties: {}
-  Action:
-    type: object
-    properties:
-      params:
-        type: object
-      title:
-        type: string
-      type:
-        type: string
-      url:
-        type: string
-  Content:
-    type: object
-    properties:
-      sections:
-        type: array
-        items:
-          type: object
-  SearchQuery:
-    type: object
-    properties:
-      model:
-        type: string
-      query:
-        type: string
-      sections:
-        type: array
-        items:
-          type: object
-  Section:
-    type: object
-    properties:
-      title:
-        type: string
-      topics:
-        type: array
-        items:
-          type: object
-  Topic:
-    type: object
-    properties:
-      actions:
-        type: array
-        items:
-          type: object
-      content:
-        type: string
-      id:
-        type: string
-      title:
-        type: string
-  ServiceStatus:
-    type: object
-    properties:
-      incidents:
-        type: array
-        items:
-          type: object
-  ServiceStatusIncident:
-    type: object
-    properties:
-      id:
-        type: string
-      impact:
-        type: string
-      name:
-        type: string
-      shortlink:
-        type: string
-      status:
-        type: string
-  ApiPinSms:
-    type: object
-    properties:
-      smsBlocked:
-        type: boolean
   ApiAttachment:
     type: object
     properties:
       created:
-        type: object
+        type: string
+        format: date
       externalId:
         type: string
       fileUrl:
@@ -1951,7 +1935,8 @@ definitions:
       appUri:
         type: string
       created:
-        type: object
+        type: string
+        format: date
       externalId:
         type: string
       id:
@@ -1960,6 +1945,7 @@ definitions:
         type: boolean
       params:
         type: object
+        description: '*TODO: inner class refs'
       transaction:
         type: object
         $ref: '#definitions/ApiTransaction'
@@ -1974,9 +1960,11 @@ definitions:
       imageUrl:
         type: string
       intervalEnd:
-        type: object
+        type: string
+        format: date
       intervalStart:
-        type: object
+        type: string
+        format: date
       intervalType:
         type: string
       kycRejectedCustomerMessage:
@@ -2057,7 +2045,8 @@ definitions:
         type: object
         $ref: '#definitions/ApiCounterparty'
       created:
-        type: object
+        type: string
+        format: date
       currency:
         type: string
       declineReason:
@@ -2085,11 +2074,219 @@ definitions:
       settled:
         type: string
       updated:
+        type: string
+        format: date
+  Action:
+    type: object
+    properties:
+      params:
         type: object
+        description: '*TODO: inner class refs'
+      title:
+        type: string
+      type:
+        type: string
+      url:
+        type: string
+  Content:
+    type: object
+    properties:
+      sections:
+        type: array
+        items:
+          type: object
+  SearchQuery:
+    type: object
+    properties:
+      model:
+        type: string
+      query:
+        type: string
+      sections:
+        type: array
+        items:
+          type: object
+  Section:
+    type: object
+    properties:
+      title:
+        type: string
+      topics:
+        type: array
+        items:
+          type: object
+  Topic:
+    type: object
+    properties:
+      actions:
+        type: array
+        items:
+          type: object
+      content:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+  ApiUploadContainer:
+    type: object
+    properties:
+      fileUrl:
+        type: string
+      uploadUrl:
+        type: string
+  ContentType:
+    type: object
+    properties:
+      mimeType:
+        type: string
+  FileType:
+    type: object
+    properties:
+      apiValue:
+        type: string
+  FileUpload:
+    type: object
+    properties:
+      fileId:
+        type: string
+      uploadUrl:
+        type: string
+  IdentityDocumentType:
+    type: object
+    properties:
+      apiValue:
+        type: string
+      displayNameRes:
+        type: integer
+      isBackRequired:
+        type: boolean
+  IdentityVerification:
+    type: object
+    properties:
+      allowPicker:
+        type: boolean
+      allowSystemCamera:
+        type: boolean
+      identityDocUploaded:
+        type: boolean
+      rejectionNote:
+        type: string
+      rejectionReasonCode:
+        type: string
+      selfieUploaded:
+        type: boolean
+      status:
+        type: object
+        description: '*TODO: inner class refs'
+  WhenMappings:
+    type: object
+    properties: {}
+  LegacyIdType:
+    type: object
+    properties:
+      type:
+        type: string
+  LegacyKyc:
+    type: object
+    properties:
+      evidenceReviewed:
+        type: boolean
+      evidenceSubmitted:
+        type: boolean
+      status:
+        type: object
+        description: '*TODO: inner class refs'
+  ApiPinSms:
+    type: object
+    properties:
+      smsBlocked:
+        type: boolean
   SignUpSource:
     type: object
     properties:
       apiValue:
+        type: string
+  AddStripeCardRequest:
+    type: object
+    properties:
+      accountId:
+        type: string
+      iin:
+        type: string
+      save:
+        type: boolean
+      stripeToken:
+        type: string
+  ApiStripeCard:
+    type: object
+    properties:
+      brand:
+        type: string
+      endDate:
+        type: string
+      funding:
+        type: string
+      lastFour:
+        type: string
+      stripeCardId:
+        type: string
+  ApiStripeCards:
+    type: object
+    properties:
+      cards:
+        type: array
+        items:
+          type: object
+  ApiThreeDsResponse:
+    type: object
+    properties:
+      decision:
+        type: string
+      redirectUrl:
+        type: string
+      required:
+        type: boolean
+      status:
+        type: string
+      stripeSource:
+        type: string
+  ApiTopUpLimits:
+    type: object
+    properties:
+      maxLoad:
+        type: number
+      minLoad:
+        type: number
+  ThreeDSecureRequest:
+    type: object
+    properties:
+      accountId:
+        type: string
+      amount:
+        type: number
+      currency:
+        type: string
+      isInitial:
+        type: boolean
+      returnUrl:
+        type: string
+      stripeCardId:
+        type: string
+  TopUpRequest:
+    type: object
+    properties:
+      accountId:
+        type: string
+      amount:
+        type: number
+      currency:
+        type: string
+      isInitial:
+        type: boolean
+      stripeSource:
+        type: string
+      threeDSecureDecision:
         type: string
   Data:
     type: object
@@ -2225,151 +2422,23 @@ definitions:
         type: string
       timestamp:
         type: string
-  AddStripeCardRequest:
+  ServiceStatus:
     type: object
     properties:
-      accountId:
-        type: string
-      iin:
-        type: string
-      save:
-        type: boolean
-      stripeToken:
-        type: string
-  ApiStripeCard:
-    type: object
-    properties:
-      brand:
-        type: string
-      endDate:
-        type: string
-      funding:
-        type: string
-      lastFour:
-        type: string
-      stripeCardId:
-        type: string
-  ApiStripeCards:
-    type: object
-    properties:
-      cards:
+      incidents:
         type: array
         items:
           type: object
-  ApiThreeDsResponse:
+  ServiceStatusIncident:
     type: object
     properties:
-      decision:
+      id:
         type: string
-      redirectUrl:
+      impact:
         type: string
-      required:
-        type: boolean
+      name:
+        type: string
+      shortlink:
+        type: string
       status:
         type: string
-      stripeSource:
-        type: string
-  ApiTopUpLimits:
-    type: object
-    properties:
-      maxLoad:
-        type: number
-      minLoad:
-        type: number
-  ThreeDSecureRequest:
-    type: object
-    properties:
-      accountId:
-        type: string
-      amount:
-        type: number
-      currency:
-        type: string
-      isInitial:
-        type: boolean
-      returnUrl:
-        type: string
-      stripeCardId:
-        type: string
-  TopUpRequest:
-    type: object
-    properties:
-      accountId:
-        type: string
-      amount:
-        type: number
-      currency:
-        type: string
-      isInitial:
-        type: boolean
-      stripeSource:
-        type: string
-      threeDSecureDecision:
-        type: string
-  ApiUploadContainer:
-    type: object
-    properties:
-      fileUrl:
-        type: string
-      uploadUrl:
-        type: string
-  ContentType:
-    type: object
-    properties:
-      mimeType:
-        type: string
-  FileType:
-    type: object
-    properties:
-      apiValue:
-        type: string
-  FileUpload:
-    type: object
-    properties:
-      fileId:
-        type: string
-      uploadUrl:
-        type: string
-  IdentityDocumentType:
-    type: object
-    properties:
-      apiValue:
-        type: string
-      displayNameRes:
-        type: object
-      isBackRequired:
-        type: boolean
-  IdentityVerification:
-    type: object
-    properties:
-      allowPicker:
-        type: boolean
-      allowSystemCamera:
-        type: boolean
-      identityDocUploaded:
-        type: boolean
-      rejectionNote:
-        type: string
-      rejectionReasonCode:
-        type: string
-      selfieUploaded:
-        type: boolean
-      status:
-        type: object
-  WhenMappings:
-    type: object
-    properties: {}
-  LegacyIdType:
-    type: object
-    properties:
-      type:
-        type: string
-  LegacyKyc:
-    type: object
-    properties:
-      evidenceReviewed:
-        type: boolean
-      evidenceSubmitted:
-        type: boolean
-      status:
-        type: object

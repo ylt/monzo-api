@@ -13,7 +13,7 @@ let base = 'apk/co/uk/getmondo/api/model/';
 
 (async () => {
 
-    let swag = yaml.safeLoad(fs.readFileSync('../swagger.yaml'));
+    let swag = yaml.safeLoad(fs.readFileSync('swagger.yml'));
 
     let files = await recursive(base);
     files = files.map(f => {
@@ -59,7 +59,7 @@ let base = 'apk/co/uk/getmondo/api/model/';
             if (['float', 'double', 'short', 'long'].indexOf(matches[1].toLowerCase()) !== -1) {
                 def.type = 'number';
             }
-            else if (matches[1].toLowerCase() == 'integer') {
+            else if (['int', 'integer'].indexOf(matches[1].toLowerCase()) !== -1) {
                 def.type = 'integer';
             }
             else if (matches[1].toLowerCase() == 'string') {
@@ -74,17 +74,25 @@ let base = 'apk/co/uk/getmondo/api/model/';
                     type: 'object'
                 }
             }
+            else if (['g', 'Date'].indexOf(matches[1]) !== -1) {
+                def.type = 'string';
+                def.format = "date";
+            }
             else {
                 def.type = 'object';
 
                 console.log(matches[1], matches[1].split('.')[0], file['class']);
                 if (matches[1].split('.')[0] == file['class']) {
                     //this is a self reference, nothing we can do here, yet..
+                    def.description = '*TODO: inner class refs';
                 }
                 else {
                     // def.obj = matches[1];
                     if (byClass[matches[1]]) {
                         def.$ref = '#definitions/'+byClass[matches[1]].class
+                    }
+                    else {
+                        def.description = 'Unknown type: '+matches[1];
                     }
                 }
 

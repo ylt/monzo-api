@@ -6,11 +6,12 @@ const fs = require('fs');
 const recursive = require("recursive-readdir");
 const yaml = require('js-yaml');
 const _ = require('lodash');
-
+const loudRejection = require('loud-rejection');
+loudRejection();
 
 let base = 'apk/co/uk/getmondo/api/model/';
 
-let swag = yaml.safeLoad(fs.readFileSync('../swagger.yaml'));
+let swag = yaml.safeLoad(fs.readFileSync('swagger.yml'));
 
 let endpoints = _.keys(swag.paths);
 
@@ -45,15 +46,18 @@ function filter(files, filter, filterend, filtername) {
 (async () => {
     let files = await recursive(base);
     files = files.map(f => {
-        let name = /model\/(.*).java/.exec(f);
+        let name = /model\/(.*)\.java/.exec(f);
+        let c = /([a-zA-Z0-9]+)\.java$/.exec(f);
+
         return {
             path: f,
             name: name[1],
+            'class': c[1],
             endpoint: null
         };
     })
 
-    files = _.groupBy(files, 'name');
+    files = _.keyBy(files, 'name');
     files['ApiInitialTopupStatus']
     files['ApiPostcodeResponse']
     files['ApiProfile'].endpoint = '/profile';
@@ -65,7 +69,7 @@ function filter(files, filter, filterend, filtername) {
     files['help/SearchQuery'].endpoint = '/help/content/search';
     files['help/Section'].endpoint = '/help/content/categories/{id}';
     files['topup/ApiThreeDsResponse'].endpoint = '/stripe/three_d_secure';
-    files = _.flatten(_.values(files));
+    files = _.values(files);
 
     console.log(files);
 
@@ -101,10 +105,26 @@ function filter(files, filter, filterend, filtername) {
 
     // console.log(util.inspect(files, {colors: true}));
 
-    let ep = _.groupBy(files, 'endpoint');
+    // let mapping = _.keyBy(files, 'endpoint');
+    //
+    // console.log(mapping);
+    for (let map of files) {
+        if (!map.endpoint)
+            continue;
 
-    console.log(endpoints);
+        if (!swag.paths[map.endpoint]) {
+            console.log('not found', map.endpoint)
+        }
 
-    console.log(ep)
+        let methods = swag.paths[map.endpoint];
+        // console.log('m', methods);
+        for (let method in methods) {
+            swag.paths[map.endpoint][method].responses['200'].schema = {
+                '$ref': '#definitions/' + map.class
+            };
+        }
+    }
+    fs.writeFileSync('swagger.yml', yaml.safeDump(swag))
+
 
 })();
