@@ -12,5 +12,6 @@
     "java-parser": "0.0.2",
     "js-yaml": "^3.10.0",
     "lodash": "^4.17.4",
+    "recursive-readdir": "^2.2.1"
   }
 }

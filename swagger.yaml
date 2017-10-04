@@ -1488,5 +1488,854 @@ paths:
         '200':
           description: Success
 securityDefinitions: {}
-definitions: {}
-
+definitions:
+  ApiAccount:
+    type: object
+    properties:
+      accountNumber:
+        type: number
+      created:
+        type: number
+      description:
+        type: number
+      id:
+        type: number
+      sortCode:
+        type: number
+      type:
+        type: number
+  ApiAccountSettings:
+    type: object
+    properties:
+      magstripeAtmEnabled:
+        type: number
+      magstripeAtmEnabledFor:
+        type: number
+  ApiAddress:
+    type: object
+    properties:
+      addressId:
+        type: number
+      addressLines:
+        type: number
+      administrativeArea:
+        type: number
+      countryCode:
+        type: number
+      postalCode:
+        type: number
+  ApiAccounts:
+    type: object
+    properties:
+      accounts:
+        type: number
+  ApiAttachmentResponse:
+    type: object
+    properties:
+      attachment:
+        type: number
+  ApiBalance:
+    type: object
+    properties:
+      balance:
+        type: number
+      currency:
+        type: number
+      localSpend:
+        type: number
+      spendToday:
+        type: number
+  ApiBalanceLimits:
+    type: object
+    properties:
+      annualCashLimit:
+        type: number
+      annualCashLimitTotal:
+        type: number
+      annualLoadLimit:
+        type: number
+      annualLoadLimitTotal:
+        type: number
+      dailyCashLimit:
+        type: number
+      dailyCashLimitTotal:
+        type: number
+      dailyLoadLimit:
+        type: number
+      dailyLoadLimitTotal:
+        type: number
+      inboundP2pMax:
+        type: number
+      maxBalance:
+        type: number
+      maxSingleP2pLimit:
+        type: number
+      maxSinglePosLimit:
+        type: number
+      monthlyCashLimit:
+        type: number
+      monthlyCashLimitTotal:
+        type: number
+      monthlyInboundP2pLimit:
+        type: number
+      monthlyInboundP2pLimitTotal:
+        type: number
+      monthlyLoadLimit:
+        type: number
+      monthlyLoadLimitTotal:
+        type: number
+      monthlyP2pLimit:
+        type: number
+      monthlyP2pLimitTotal:
+        type: number
+      verificationType:
+        type: number
+  ApiCard:
+    type: object
+    properties:
+      expires:
+        type: number
+      id:
+        type: number
+      lastDigits:
+        type: number
+      processorToken:
+        type: number
+      replacementOrdered:
+        type: number
+      status:
+        type: number
+  ApiCardDispatchStatus:
+    type: object
+    properties:
+      estimatedDeliveryDate:
+        type: number
+      status:
+        type: number
+  ApiCardReplacementOrder:
+    type: object
+    properties:
+      estimatedDeliveryDate:
+        type: number
+  ApiCardResponse:
+    type: object
+    properties:
+      card:
+        type: number
+  ApiCardsResponse:
+    type: object
+    properties:
+      cards:
+        type: number
+  ApiCodeCheckResult:
+    type: object
+    properties:
+      isOk:
+        type: number
+      reason:
+        type: number
+  ApiConfig:
+    type: object
+    properties:
+      featureFlags:
+        type: number
+      inboundP2p:
+        type: number
+      p2p:
+        type: number
+      sddSplashscreen:
+        type: number
+      username:
+        type: number
+      isIdentityVerificationHelpEnabled:
+        type: number
+      enabled:
+        type: number
+      max:
+        type: number
+      min:
+        type: number
+      reason:
+        type: number
+      primary:
+        type: number
+      status:
+        type: number
+  ApiContactDiscovery:
+    type: object
+    properties:
+      phone:
+        type: number
+  ApiIntercomToken:
+    type: object
+    properties:
+      token:
+        type: number
+  ApiInitialTopupStatus:
+    type: object
+    properties:
+      topupAmount:
+        type: number
+      topupCurrency:
+        type: number
+      topupProcessed:
+        type: number
+  ApiLocalSpend:
+    type: object
+    properties:
+      currency:
+        type: number
+      spendToday:
+        type: number
+  ApiNews:
+    type: object
+    properties:
+      posts:
+        type: number
+  ApiNewsItem:
+    type: object
+    properties:
+      expires:
+        type: number
+      id:
+        type: number
+      title:
+        type: number
+      uri:
+        type: number
+  ApiPostcodeResponse:
+    type: object
+    properties:
+      results:
+        type: number
+  ApiToken:
+    type: object
+    properties:
+      accessToken:
+        type: number
+      clientId:
+        type: number
+      expiresIn:
+        type: number
+      refreshToken:
+        type: number
+      tokenType:
+        type: number
+      userId:
+        type: number
+  ApiProfile:
+    type: object
+    properties:
+      address:
+        type: number
+      addressUpdatable:
+        type: number
+      dateOfBirth:
+        type: number
+      email:
+        type: number
+      name:
+        type: number
+      phoneNumber:
+        type: number
+      preferredName:
+        type: number
+      userId:
+        type: number
+      userNumber:
+        type: number
+  ApiTransactionResponse:
+    type: object
+    properties:
+      transaction:
+        type: number
+  ApiUserSettings:
+    type: object
+    properties:
+      p2pEnabled:
+        type: number
+  ApiWaitlistPosition:
+    type: object
+    properties:
+      after:
+        type: number
+      events:
+        type: number
+      finished:
+        type: number
+      ineligible:
+        type: number
+      position:
+        type: number
+      referralBump:
+        type: number
+      referralLink:
+        type: number
+      userId:
+        type: number
+  LegacyApiAddress:
+    type: object
+    properties:
+      administrativeArea:
+        type: number
+      country:
+        type: number
+      locality:
+        type: number
+      postalCode:
+        type: number
+      streetAddress:
+        type: number
+  NotificationMessage:
+    type: object
+    properties:
+      body:
+        type: number
+      subtitle:
+        type: number
+      title:
+        type: number
+  VerificationType:
+    type: object
+    properties:
+      descriptionResId:
+        type: number
+      dueDiligenceLevel:
+        type: number
+  a:
+    type: object
+    properties: {}
+  b:
+    type: object
+    properties: {}
+  c:
+    type: object
+    properties: {}
+  identity_verification/ApiUploadContainer:
+    type: object
+    properties:
+      fileUrl:
+        type: number
+      uploadUrl:
+        type: number
+  identity_verification/ContentType:
+    type: object
+    properties:
+      mimeType:
+        type: number
+  identity_verification/FileUpload:
+    type: object
+    properties:
+      fileId:
+        type: number
+      uploadUrl:
+        type: number
+  identity_verification/FileType:
+    type: object
+    properties:
+      apiValue:
+        type: number
+  identity_verification/IdentityDocumentType:
+    type: object
+    properties:
+      apiValue:
+        type: number
+      displayNameRes:
+        type: number
+      isBackRequired:
+        type: number
+  identity_verification/IdentityVerification:
+    type: object
+    properties:
+      allowPicker:
+        type: number
+      allowSystemCamera:
+        type: number
+      identityDocUploaded:
+        type: number
+      rejectionNote:
+        type: number
+      rejectionReasonCode:
+        type: number
+      selfieUploaded:
+        type: number
+      status:
+        type: number
+  identity_verification/LegacyIdType$Companion$WhenMappings:
+    type: object
+    properties: {}
+  identity_verification/LegacyIdType:
+    type: object
+    properties:
+      type:
+        type: number
+  identity_verification/LegacyKyc$Status$WhenMappings:
+    type: object
+    properties: {}
+  identity_verification/LegacyKyc:
+    type: object
+    properties:
+      evidenceReviewed:
+        type: number
+      evidenceSubmitted:
+        type: number
+      status:
+        type: number
+  feed/ApiAttachment:
+    type: object
+    properties:
+      created:
+        type: number
+      externalId:
+        type: number
+      fileUrl:
+        type: number
+      id:
+        type: number
+  feed/ApiCounterparty:
+    type: object
+    properties:
+      accountNumber:
+        type: number
+      name:
+        type: number
+      number:
+        type: number
+      sortCode:
+        type: number
+      userId:
+        type: number
+  feed/ApiFeedItem:
+    type: object
+    properties:
+      appUri:
+        type: number
+      created:
+        type: number
+      externalId:
+        type: number
+      id:
+        type: number
+      isDismissable:
+        type: number
+      params:
+        type: number
+      transaction:
+        type: number
+      type:
+        type: number
+      amount:
+        type: number
+      body:
+        type: number
+      currency:
+        type: number
+      imageUrl:
+        type: number
+      intervalEnd:
+        type: number
+      intervalStart:
+        type: number
+      intervalType:
+        type: number
+      kycRejectedCustomerMessage:
+        type: number
+      kycRejectedReason:
+        type: number
+      sddMigrationRejectionNote:
+        type: number
+      ticketId:
+        type: number
+      title:
+        type: number
+  feed/ApiFeedResponse:
+    type: object
+    properties:
+      items:
+        type: number
+  feed/ApiMerchant:
+    type: object
+    properties:
+      address:
+        type: number
+      atm:
+        type: number
+      category:
+        type: number
+      description:
+        type: number
+      emoji:
+        type: number
+      groupId:
+        type: number
+      id:
+        type: number
+      logo:
+        type: number
+      name:
+        type: number
+      online:
+        type: number
+  feed/ApiMerchantAddress:
+    type: object
+    properties:
+      formatted:
+        type: number
+      latitude:
+        type: number
+      longitude:
+        type: number
+      shortFormatted:
+        type: number
+  feed/ApiMetadata:
+    type: object
+    properties:
+      bacsDirectDebitInstructionId:
+        type: number
+      hideAmount:
+        type: number
+      inboundP2pId:
+        type: number
+      notes:
+        type: number
+  feed/ApiTransaction:
+    type: object
+    properties:
+      amount:
+        type: number
+      attachments:
+        type: number
+      category:
+        type: number
+      counterparty:
+        type: number
+      created:
+        type: number
+      currency:
+        type: number
+      declineReason:
+        type: number
+      description:
+        type: number
+      id:
+        type: number
+      includeInSpending:
+        type: number
+      isLoad:
+        type: number
+      localAmount:
+        type: number
+      localCurrency:
+        type: number
+      merchant:
+        type: number
+      metadata:
+        type: number
+      scheme:
+        type: number
+      settled:
+        type: number
+      updated:
+        type: number
+  help/Action:
+    type: object
+    properties:
+      params:
+        type: number
+      title:
+        type: number
+      type:
+        type: number
+      url:
+        type: number
+  help/Content:
+    type: object
+    properties:
+      sections:
+        type: number
+  help/SearchQuery:
+    type: object
+    properties:
+      model:
+        type: number
+      query:
+        type: number
+      sections:
+        type: number
+  help/Section:
+    type: object
+    properties:
+      title:
+        type: number
+      topics:
+        type: number
+  help/Topic:
+    type: object
+    properties:
+      actions:
+        type: number
+      content:
+        type: number
+      id:
+        type: number
+      title:
+        type: number
+  pin/ApiPinSms:
+    type: object
+    properties:
+      smsBlocked:
+        type: number
+  pin/a:
+    type: object
+    properties:
+      prefix:
+        type: number
+  service_status/ServiceStatus:
+    type: object
+    properties:
+      incidents:
+        type: number
+  service_status/ServiceStatusIncident:
+    type: object
+    properties:
+      id:
+        type: number
+      impact:
+        type: number
+      name:
+        type: number
+      shortlink:
+        type: number
+      status:
+        type: number
+  sign_up/SignUpSource:
+    type: object
+    properties:
+      apiValue:
+        type: number
+  topup/AddStripeCardRequest:
+    type: object
+    properties:
+      accountId:
+        type: number
+      iin:
+        type: number
+      save:
+        type: number
+      stripeToken:
+        type: number
+  topup/ApiStripeCard:
+    type: object
+    properties:
+      brand:
+        type: number
+      endDate:
+        type: number
+      funding:
+        type: number
+      lastFour:
+        type: number
+      stripeCardId:
+        type: number
+  topup/ApiStripeCards:
+    type: object
+    properties:
+      cards:
+        type: number
+  topup/ApiThreeDsResponse:
+    type: object
+    properties:
+      decision:
+        type: number
+      redirectUrl:
+        type: number
+      required:
+        type: number
+      status:
+        type: number
+      stripeSource:
+        type: number
+  topup/ApiTopUpLimits:
+    type: object
+    properties:
+      maxLoad:
+        type: object
+      minLoad:
+        type: object
+  topup/ThreeDSecureRequest:
+    type: object
+    properties:
+      accountId:
+        type: number
+      amount:
+        type: number
+      currency:
+        type: number
+      isInitial:
+        type: number
+      returnUrl:
+        type: number
+      stripeCardId:
+        type: number
+  topup/TopUpRequest:
+    type: object
+    properties:
+      accountId:
+        type: number
+      amount:
+        type: number
+      currency:
+        type: number
+      isInitial:
+        type: number
+      stripeSource:
+        type: number
+      threeDSecureDecision:
+        type: number
+  tracking/Data:
+    type: object
+    properties:
+      activeNotifications:
+        type: number
+      amount:
+        type: number
+      androidPayEnabled:
+        type: number
+      apiErrorCode:
+        type: number
+      apiErrorMessage:
+        type: number
+      apiStatusCode:
+        type: number
+      appShortcutType:
+        type: number
+      authenticate:
+        type: number
+      cameFrom:
+        type: number
+      category:
+        type: number
+      contacts:
+        type: number
+      contactsOnMonzo:
+        type: number
+      description:
+        type: number
+      diligence:
+        type: number
+      docDone:
+        type: number
+      docType:
+        type: number
+      eligible:
+        type: number
+      enabled:
+        type: number
+      errorType:
+        type: number
+      fallback:
+        type: number
+      feedback:
+        type: number
+      fingerprintAuth:
+        type: number
+      firstSampleDelta:
+        type: number
+      firstTime:
+        type: number
+      from:
+        type: number
+      gpsAdid:
+        type: number
+      granted:
+        type: number
+      kycRejected:
+        type: number
+      logoutReason:
+        type: number
+      memoryError:
+        type: number
+      method:
+        type: number
+      month:
+        type: number
+      newCategory:
+        type: number
+      nfcEnabled:
+        type: number
+      notificationSubType:
+        type: number
+      notificationType:
+        type: number
+      oldCategory:
+        type: number
+      openedFrom:
+        type: number
+      optedIn:
+        type: number
+      outcome:
+        type: number
+      path:
+        type: number
+      redirectId:
+        type: number
+      referrer:
+        type: number
+      reportMonth:
+        type: number
+      sampleError:
+        type: number
+      secondSampleDelta:
+        type: number
+      selfieDone:
+        type: number
+      splitWith:
+        type: number
+      topicId:
+        type: number
+      tourPage:
+        type: number
+      traceId:
+        type: number
+      transactionId:
+        type: number
+      type:
+        type: number
+      url:
+        type: number
+      userId:
+        type: number
+      videoErrorReason:
+        type: number
+  tracking/Impression:
+    type: object
+    properties:
+      events:
+        type: number
+      value:
+        type: number
+  tracking/ImpressionEvent:
+    type: object
+    properties:
+      data:
+        type: number
+      name:
+        type: number
+      timestamp:
+        type: number
+  tracking/a:
+    type: object
+    properties: {}
+  ApiGoldenTicket:
+    type: object
+    properties:
+      shortUri:
+        type: number
+      status:
+        type: number
+      ticketId:
+        type: number
+      uri:
+        type: number
+      apiValue:
+        type: number

@@ -1364,3 +1364,682 @@ Monzo Undocumented API
 | ---- | ----------- |
 | 200 | Success |
 
+### Models
+---
+
+<a name="apiAccount"></a>**ApiAccount**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountNumber | number |  | No |
+| created | number |  | No |
+| description | number |  | No |
+| id | number |  | No |
+| sortCode | number |  | No |
+| type | number |  | No |
+
+<a name="apiAccountSettings"></a>**ApiAccountSettings**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| magstripeAtmEnabled | number |  | No |
+| magstripeAtmEnabledFor | number |  | No |
+
+<a name="apiAddress"></a>**ApiAddress**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| addressId | number |  | No |
+| addressLines | number |  | No |
+| administrativeArea | number |  | No |
+| countryCode | number |  | No |
+| postalCode | number |  | No |
+
+<a name="apiAccounts"></a>**ApiAccounts**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accounts | number |  | No |
+
+<a name="apiAttachmentResponse"></a>**ApiAttachmentResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| attachment | number |  | No |
+
+<a name="apiBalance"></a>**ApiBalance**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| balance | number |  | No |
+| currency | number |  | No |
+| localSpend | number |  | No |
+| spendToday | number |  | No |
+
+<a name="apiBalanceLimits"></a>**ApiBalanceLimits**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| annualCashLimit | number |  | No |
+| annualCashLimitTotal | number |  | No |
+| annualLoadLimit | number |  | No |
+| annualLoadLimitTotal | number |  | No |
+| dailyCashLimit | number |  | No |
+| dailyCashLimitTotal | number |  | No |
+| dailyLoadLimit | number |  | No |
+| dailyLoadLimitTotal | number |  | No |
+| inboundP2pMax | number |  | No |
+| maxBalance | number |  | No |
+| maxSingleP2pLimit | number |  | No |
+| maxSinglePosLimit | number |  | No |
+| monthlyCashLimit | number |  | No |
+| monthlyCashLimitTotal | number |  | No |
+| monthlyInboundP2pLimit | number |  | No |
+| monthlyInboundP2pLimitTotal | number |  | No |
+| monthlyLoadLimit | number |  | No |
+| monthlyLoadLimitTotal | number |  | No |
+| monthlyP2pLimit | number |  | No |
+| monthlyP2pLimitTotal | number |  | No |
+| verificationType | number |  | No |
+
+<a name="apiCard"></a>**ApiCard**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| expires | number |  | No |
+| id | number |  | No |
+| lastDigits | number |  | No |
+| processorToken | number |  | No |
+| replacementOrdered | number |  | No |
+| status | number |  | No |
+
+<a name="apiCardDispatchStatus"></a>**ApiCardDispatchStatus**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| estimatedDeliveryDate | number |  | No |
+| status | number |  | No |
+
+<a name="apiCardReplacementOrder"></a>**ApiCardReplacementOrder**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| estimatedDeliveryDate | number |  | No |
+
+<a name="apiCardResponse"></a>**ApiCardResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| card | number |  | No |
+
+<a name="apiCardsResponse"></a>**ApiCardsResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| cards | number |  | No |
+
+<a name="apiCodeCheckResult"></a>**ApiCodeCheckResult**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| isOk | number |  | No |
+| reason | number |  | No |
+
+<a name="apiConfig"></a>**ApiConfig**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| featureFlags | number |  | No |
+| inboundP2p | number |  | No |
+| p2p | number |  | No |
+| sddSplashscreen | number |  | No |
+| username | number |  | No |
+| isIdentityVerificationHelpEnabled | number |  | No |
+| enabled | number |  | No |
+| max | number |  | No |
+| min | number |  | No |
+| reason | number |  | No |
+| primary | number |  | No |
+| status | number |  | No |
+
+<a name="apiContactDiscovery"></a>**ApiContactDiscovery**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| phone | number |  | No |
+
+<a name="apiIntercomToken"></a>**ApiIntercomToken**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| token | number |  | No |
+
+<a name="apiInitialTopupStatus"></a>**ApiInitialTopupStatus**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| topupAmount | number |  | No |
+| topupCurrency | number |  | No |
+| topupProcessed | number |  | No |
+
+<a name="apiLocalSpend"></a>**ApiLocalSpend**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| currency | number |  | No |
+| spendToday | number |  | No |
+
+<a name="apiNews"></a>**ApiNews**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| posts | number |  | No |
+
+<a name="apiNewsItem"></a>**ApiNewsItem**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| expires | number |  | No |
+| id | number |  | No |
+| title | number |  | No |
+| uri | number |  | No |
+
+<a name="apiPostcodeResponse"></a>**ApiPostcodeResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| results | number |  | No |
+
+<a name="apiToken"></a>**ApiToken**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accessToken | number |  | No |
+| clientId | number |  | No |
+| expiresIn | number |  | No |
+| refreshToken | number |  | No |
+| tokenType | number |  | No |
+| userId | number |  | No |
+
+<a name="apiProfile"></a>**ApiProfile**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| address | number |  | No |
+| addressUpdatable | number |  | No |
+| dateOfBirth | number |  | No |
+| email | number |  | No |
+| name | number |  | No |
+| phoneNumber | number |  | No |
+| preferredName | number |  | No |
+| userId | number |  | No |
+| userNumber | number |  | No |
+
+<a name="apiTransactionResponse"></a>**ApiTransactionResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| transaction | number |  | No |
+
+<a name="apiUserSettings"></a>**ApiUserSettings**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| p2pEnabled | number |  | No |
+
+<a name="apiWaitlistPosition"></a>**ApiWaitlistPosition**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| after | number |  | No |
+| events | number |  | No |
+| finished | number |  | No |
+| ineligible | number |  | No |
+| position | number |  | No |
+| referralBump | number |  | No |
+| referralLink | number |  | No |
+| userId | number |  | No |
+
+<a name="legacyApiAddress"></a>**LegacyApiAddress**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| administrativeArea | number |  | No |
+| country | number |  | No |
+| locality | number |  | No |
+| postalCode | number |  | No |
+| streetAddress | number |  | No |
+
+<a name="notificationMessage"></a>**NotificationMessage**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| body | number |  | No |
+| subtitle | number |  | No |
+| title | number |  | No |
+
+<a name="verificationType"></a>**VerificationType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| descriptionResId | number |  | No |
+| dueDiligenceLevel | number |  | No |
+
+<a name="a"></a>**a**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="b"></a>**b**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="c"></a>**c**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="identity_verificationApiUploadContainer"></a>**identity_verification/ApiUploadContainer**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| fileUrl | number |  | No |
+| uploadUrl | number |  | No |
+
+<a name="identity_verificationContentType"></a>**identity_verification/ContentType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| mimeType | number |  | No |
+
+<a name="identity_verificationFileUpload"></a>**identity_verification/FileUpload**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| fileId | number |  | No |
+| uploadUrl | number |  | No |
+
+<a name="identity_verificationFileType"></a>**identity_verification/FileType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| apiValue | number |  | No |
+
+<a name="identity_verificationIdentityDocumentType"></a>**identity_verification/IdentityDocumentType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| apiValue | number |  | No |
+| displayNameRes | number |  | No |
+| isBackRequired | number |  | No |
+
+<a name="identity_verificationIdentityVerification"></a>**identity_verification/IdentityVerification**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| allowPicker | number |  | No |
+| allowSystemCamera | number |  | No |
+| identityDocUploaded | number |  | No |
+| rejectionNote | number |  | No |
+| rejectionReasonCode | number |  | No |
+| selfieUploaded | number |  | No |
+| status | number |  | No |
+
+<a name="identity_verificationLegacyIdTypeCompanionWhenMappings"></a>**identity_verification/LegacyIdType$Companion$WhenMappings**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="identity_verificationLegacyIdType"></a>**identity_verification/LegacyIdType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| type | number |  | No |
+
+<a name="identity_verificationLegacyKycStatusWhenMappings"></a>**identity_verification/LegacyKyc$Status$WhenMappings**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="identity_verificationLegacyKyc"></a>**identity_verification/LegacyKyc**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| evidenceReviewed | number |  | No |
+| evidenceSubmitted | number |  | No |
+| status | number |  | No |
+
+<a name="feedApiAttachment"></a>**feed/ApiAttachment**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| created | number |  | No |
+| externalId | number |  | No |
+| fileUrl | number |  | No |
+| id | number |  | No |
+
+<a name="feedApiCounterparty"></a>**feed/ApiCounterparty**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountNumber | number |  | No |
+| name | number |  | No |
+| number | number |  | No |
+| sortCode | number |  | No |
+| userId | number |  | No |
+
+<a name="feedApiFeedItem"></a>**feed/ApiFeedItem**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| appUri | number |  | No |
+| created | number |  | No |
+| externalId | number |  | No |
+| id | number |  | No |
+| isDismissable | number |  | No |
+| params | number |  | No |
+| transaction | number |  | No |
+| type | number |  | No |
+| amount | number |  | No |
+| body | number |  | No |
+| currency | number |  | No |
+| imageUrl | number |  | No |
+| intervalEnd | number |  | No |
+| intervalStart | number |  | No |
+| intervalType | number |  | No |
+| kycRejectedCustomerMessage | number |  | No |
+| kycRejectedReason | number |  | No |
+| sddMigrationRejectionNote | number |  | No |
+| ticketId | number |  | No |
+| title | number |  | No |
+
+<a name="feedApiFeedResponse"></a>**feed/ApiFeedResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| items | number |  | No |
+
+<a name="feedApiMerchant"></a>**feed/ApiMerchant**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| address | number |  | No |
+| atm | number |  | No |
+| category | number |  | No |
+| description | number |  | No |
+| emoji | number |  | No |
+| groupId | number |  | No |
+| id | number |  | No |
+| logo | number |  | No |
+| name | number |  | No |
+| online | number |  | No |
+
+<a name="feedApiMerchantAddress"></a>**feed/ApiMerchantAddress**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| formatted | number |  | No |
+| latitude | number |  | No |
+| longitude | number |  | No |
+| shortFormatted | number |  | No |
+
+<a name="feedApiMetadata"></a>**feed/ApiMetadata**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| bacsDirectDebitInstructionId | number |  | No |
+| hideAmount | number |  | No |
+| inboundP2pId | number |  | No |
+| notes | number |  | No |
+
+<a name="feedApiTransaction"></a>**feed/ApiTransaction**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| amount | number |  | No |
+| attachments | number |  | No |
+| category | number |  | No |
+| counterparty | number |  | No |
+| created | number |  | No |
+| currency | number |  | No |
+| declineReason | number |  | No |
+| description | number |  | No |
+| id | number |  | No |
+| includeInSpending | number |  | No |
+| isLoad | number |  | No |
+| localAmount | number |  | No |
+| localCurrency | number |  | No |
+| merchant | number |  | No |
+| metadata | number |  | No |
+| scheme | number |  | No |
+| settled | number |  | No |
+| updated | number |  | No |
+
+<a name="helpAction"></a>**help/Action**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| params | number |  | No |
+| title | number |  | No |
+| type | number |  | No |
+| url | number |  | No |
+
+<a name="helpContent"></a>**help/Content**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| sections | number |  | No |
+
+<a name="helpSearchQuery"></a>**help/SearchQuery**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| model | number |  | No |
+| query | number |  | No |
+| sections | number |  | No |
+
+<a name="helpSection"></a>**help/Section**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| title | number |  | No |
+| topics | number |  | No |
+
+<a name="helpTopic"></a>**help/Topic**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| actions | number |  | No |
+| content | number |  | No |
+| id | number |  | No |
+| title | number |  | No |
+
+<a name="pinApiPinSms"></a>**pin/ApiPinSms**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| smsBlocked | number |  | No |
+
+<a name="pina"></a>**pin/a**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| prefix | number |  | No |
+
+<a name="service_statusServiceStatus"></a>**service_status/ServiceStatus**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| incidents | number |  | No |
+
+<a name="service_statusServiceStatusIncident"></a>**service_status/ServiceStatusIncident**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | number |  | No |
+| impact | number |  | No |
+| name | number |  | No |
+| shortlink | number |  | No |
+| status | number |  | No |
+
+<a name="sign_upSignUpSource"></a>**sign_up/SignUpSource**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| apiValue | number |  | No |
+
+<a name="topupAddStripeCardRequest"></a>**topup/AddStripeCardRequest**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountId | number |  | No |
+| iin | number |  | No |
+| save | number |  | No |
+| stripeToken | number |  | No |
+
+<a name="topupApiStripeCard"></a>**topup/ApiStripeCard**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| brand | number |  | No |
+| endDate | number |  | No |
+| funding | number |  | No |
+| lastFour | number |  | No |
+| stripeCardId | number |  | No |
+
+<a name="topupApiStripeCards"></a>**topup/ApiStripeCards**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| cards | number |  | No |
+
+<a name="topupApiThreeDsResponse"></a>**topup/ApiThreeDsResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| decision | number |  | No |
+| redirectUrl | number |  | No |
+| required | number |  | No |
+| status | number |  | No |
+| stripeSource | number |  | No |
+
+<a name="topupApiTopUpLimits"></a>**topup/ApiTopUpLimits**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| maxLoad | object |  | No |
+| minLoad | object |  | No |
+
+<a name="topupThreeDSecureRequest"></a>**topup/ThreeDSecureRequest**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountId | number |  | No |
+| amount | number |  | No |
+| currency | number |  | No |
+| isInitial | number |  | No |
+| returnUrl | number |  | No |
+| stripeCardId | number |  | No |
+
+<a name="topupTopUpRequest"></a>**topup/TopUpRequest**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountId | number |  | No |
+| amount | number |  | No |
+| currency | number |  | No |
+| isInitial | number |  | No |
+| stripeSource | number |  | No |
+| threeDSecureDecision | number |  | No |
+
+<a name="trackingData"></a>**tracking/Data**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| activeNotifications | number |  | No |
+| amount | number |  | No |
+| androidPayEnabled | number |  | No |
+| apiErrorCode | number |  | No |
+| apiErrorMessage | number |  | No |
+| apiStatusCode | number |  | No |
+| appShortcutType | number |  | No |
+| authenticate | number |  | No |
+| cameFrom | number |  | No |
+| category | number |  | No |
+| contacts | number |  | No |
+| contactsOnMonzo | number |  | No |
+| description | number |  | No |
+| diligence | number |  | No |
+| docDone | number |  | No |
+| docType | number |  | No |
+| eligible | number |  | No |
+| enabled | number |  | No |
+| errorType | number |  | No |
+| fallback | number |  | No |
+| feedback | number |  | No |
+| fingerprintAuth | number |  | No |
+| firstSampleDelta | number |  | No |
+| firstTime | number |  | No |
+| from | number |  | No |
+| gpsAdid | number |  | No |
+| granted | number |  | No |
+| kycRejected | number |  | No |
+| logoutReason | number |  | No |
+| memoryError | number |  | No |
+| method | number |  | No |
+| month | number |  | No |
+| newCategory | number |  | No |
+| nfcEnabled | number |  | No |
+| notificationSubType | number |  | No |
+| notificationType | number |  | No |
+| oldCategory | number |  | No |
+| openedFrom | number |  | No |
+| optedIn | number |  | No |
+| outcome | number |  | No |
+| path | number |  | No |
+| redirectId | number |  | No |
+| referrer | number |  | No |
+| reportMonth | number |  | No |
+| sampleError | number |  | No |
+| secondSampleDelta | number |  | No |
+| selfieDone | number |  | No |
+| splitWith | number |  | No |
+| topicId | number |  | No |
+| tourPage | number |  | No |
+| traceId | number |  | No |
+| transactionId | number |  | No |
+| type | number |  | No |
+| url | number |  | No |
+| userId | number |  | No |
+| videoErrorReason | number |  | No |
+
+<a name="trackingImpression"></a>**tracking/Impression**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| events | number |  | No |
+| value | number |  | No |
+
+<a name="trackingImpressionEvent"></a>**tracking/ImpressionEvent**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| data | number |  | No |
+| name | number |  | No |
+| timestamp | number |  | No |
+
+<a name="trackinga"></a>**tracking/a**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="apiGoldenTicket"></a>**ApiGoldenTicket**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| shortUri | number |  | No |
+| status | number |  | No |
+| ticketId | number |  | No |
+| uri | number |  | No |
+| apiValue | number |  | No |
