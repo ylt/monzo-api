@@ -612,6 +612,59 @@ Monzo Undocumented API
 | ---- | ----------- |
 | 200 | Success |
 
+### /oauth2/authorize
+---
+##### ***POST***
+**Parameters**
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| Authorization | header |  | No | string |
+| email | formData |  | No | string |
+| client_id | formData |  | No | string |
+| response_type | formData |  | No | string |
+| redirect_uri | formData |  | No | string |
+| state | formData |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+### /oauth2/logout
+---
+##### ***POST***
+**Parameters**
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| Authorization | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+### /oauth2/token
+---
+##### ***POST***
+**Parameters**
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| Authorization | header |  | No | string |
+| grant_type | formData |  | No | string |
+| code | formData |  | No | string |
+| redirect_uri | formData |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
 ### /p2p/recipients
 ---
 ##### ***POST***

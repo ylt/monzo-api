@@ -121,6 +121,7 @@ parse('./apk/co/uk/getmondo/api/MonzoIdentityVerificationApi.java', ['MonzoIdent
 // parse('./apk/co/uk/getmondo/api/MonzoAnalyticsApi.java', 'MonzoAnalyticsApi');
 parse('./apk/co/uk/getmondo/api/HelpApi.java', ['HelpApi']);
 parse('./apk/co/uk/getmondo/api/ServiceStatusApi.java', ['ServiceStatusApi']);
+parse('./apk/co/uk/getmondo/api/authentication/MonzoOAuthApi.java', ['MonzoOAuthApi']);
 
 
 console.log(yaml.safeDump(

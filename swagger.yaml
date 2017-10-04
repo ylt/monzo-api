@@ -654,6 +654,73 @@ paths:
       responses:
         '200':
           description: Success
+  /oauth2/authorize:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: &ref_4
+        - MonzoOAuthApi
+      parameters:
+        - in: header
+          name: Authorization
+          type: string
+        - in: formData
+          name: email
+          type: string
+        - in: formData
+          name: client_id
+          type: string
+        - in: formData
+          name: response_type
+          type: string
+        - in: formData
+          name: redirect_uri
+          type: string
+        - in: formData
+          name: state
+          type: string
+      responses:
+        '200':
+          description: Success
+  /oauth2/logout:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters:
+        - in: header
+          name: Authorization
+          type: string
+      responses:
+        '200':
+          description: Success
+  /oauth2/token:
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      tags: *ref_4
+      parameters:
+        - in: header
+          name: Authorization
+          type: string
+        - in: formData
+          name: grant_type
+          type: string
+        - in: formData
+          name: code
+          type: string
+        - in: formData
+          name: redirect_uri
+          type: string
+      responses:
+        '200':
+          description: Success
   /p2p/recipients:
     post:
       produces:
@@ -929,7 +996,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: &ref_4
+      tags: &ref_5
         - MonzoSignUpApi
       parameters:
         - in: formData
@@ -958,7 +1025,7 @@ paths:
       produces:
         - application/json
       consumes: []
-      tags: *ref_4
+      tags: *ref_5
       parameters: []
       responses:
         '200':
@@ -969,7 +1036,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: *ref_4
+      tags: *ref_5
       parameters:
         - in: formData
           name: opt_in
@@ -986,7 +1053,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: *ref_4
+      tags: *ref_5
       parameters:
         - in: formData
           name: name_type
@@ -1005,7 +1072,7 @@ paths:
       produces:
         - application/json
       consumes: []
-      tags: *ref_4
+      tags: *ref_5
       parameters: []
       responses:
         '200':
@@ -1016,7 +1083,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: *ref_4
+      tags: *ref_5
       parameters: []
       responses:
         '200':
@@ -1026,7 +1093,7 @@ paths:
       produces:
         - application/json
       consumes: []
-      tags: *ref_4
+      tags: *ref_5
       parameters: []
       responses:
         '200':
@@ -1036,7 +1103,7 @@ paths:
       produces:
         - application/json
       consumes: []
-      tags: *ref_4
+      tags: *ref_5
       parameters: []
       responses:
         '200':
@@ -1046,7 +1113,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: *ref_4
+      tags: *ref_5
       parameters:
         - in: formData
           name: legal_name
@@ -1066,7 +1133,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: *ref_4
+      tags: *ref_5
       parameters:
         - in: formData
           name: address_id
@@ -1091,7 +1158,7 @@ paths:
       produces:
         - application/json
       consumes: []
-      tags: *ref_4
+      tags: *ref_5
       parameters:
         - in: query
           name: country_code
@@ -1108,7 +1175,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: *ref_4
+      tags: *ref_5
       parameters: []
       responses:
         '200':
@@ -1119,7 +1186,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: *ref_4
+      tags: *ref_5
       parameters:
         - in: formData
           name: phone_number
@@ -1133,7 +1200,7 @@ paths:
         - application/json
       consumes:
         - application/x-www-form-urlencoded
-      tags: *ref_4
+      tags: *ref_5
       parameters:
         - in: formData
           name: phone_number
