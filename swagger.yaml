@@ -1493,58 +1493,87 @@ definitions:
     type: object
     properties:
       accountNumber:
-        type: number
+        type: string
       created:
-        type: number
+        type: object
       description:
-        type: number
+        type: string
       id:
-        type: number
+        type: string
       sortCode:
-        type: number
+        type: string
       type:
-        type: number
+        type: string
   ApiAccountSettings:
     type: object
     properties:
       magstripeAtmEnabled:
-        type: number
+        type: boolean
       magstripeAtmEnabledFor:
-        type: number
-  ApiAddress:
-    type: object
-    properties:
-      addressId:
-        type: number
-      addressLines:
-        type: number
-      administrativeArea:
-        type: number
-      countryCode:
-        type: number
-      postalCode:
         type: number
   ApiAccounts:
     type: object
     properties:
       accounts:
-        type: number
+        type: array
+        items:
+          type: object
+  ApiAddress:
+    type: object
+    properties:
+      addressId:
+        type: string
+      addressLines:
+        type: array
+        items:
+          type: object
+      administrativeArea:
+        type: string
+      countryCode:
+        type: string
+      postalCode:
+        type: string
   ApiAttachmentResponse:
     type: object
     properties:
       attachment:
-        type: number
+        type: object
+        $ref: '#definitions/ApiAttachment'
   ApiBalance:
     type: object
     properties:
       balance:
         type: number
       currency:
-        type: number
+        type: string
       localSpend:
-        type: number
+        type: array
+        items:
+          type: object
       spendToday:
         type: number
+  ApiCard:
+    type: object
+    properties:
+      expires:
+        type: string
+      id:
+        type: string
+      lastDigits:
+        type: string
+      processorToken:
+        type: string
+      replacementOrdered:
+        type: number
+      status:
+        type: string
+  ApiCardDispatchStatus:
+    type: object
+    properties:
+      estimatedDeliveryDate:
+        type: object
+      status:
+        type: object
   ApiBalanceLimits:
     type: object
     properties:
@@ -1589,219 +1618,224 @@ definitions:
       monthlyP2pLimitTotal:
         type: number
       verificationType:
-        type: number
-  ApiCard:
-    type: object
-    properties:
-      expires:
-        type: number
-      id:
-        type: number
-      lastDigits:
-        type: number
-      processorToken:
-        type: number
-      replacementOrdered:
-        type: number
-      status:
-        type: number
-  ApiCardDispatchStatus:
-    type: object
-    properties:
-      estimatedDeliveryDate:
-        type: number
-      status:
-        type: number
+        type: object
+        $ref: '#definitions/VerificationType'
   ApiCardReplacementOrder:
     type: object
     properties:
       estimatedDeliveryDate:
-        type: number
+        type: object
   ApiCardResponse:
     type: object
     properties:
       card:
-        type: number
+        type: object
+        $ref: '#definitions/ApiCard'
   ApiCardsResponse:
     type: object
     properties:
       cards:
-        type: number
-  ApiCodeCheckResult:
-    type: object
-    properties:
-      isOk:
-        type: number
-      reason:
-        type: number
+        type: array
+        items:
+          type: object
   ApiConfig:
     type: object
     properties:
       featureFlags:
-        type: number
+        type: object
       inboundP2p:
-        type: number
+        type: object
       p2p:
-        type: number
+        type: object
       sddSplashscreen:
-        type: number
+        type: string
       username:
-        type: number
+        type: object
       isIdentityVerificationHelpEnabled:
-        type: number
+        type: boolean
       enabled:
-        type: number
+        type: boolean
       max:
-        type: number
+        type: object
       min:
-        type: number
+        type: object
       reason:
-        type: number
+        type: string
       primary:
-        type: number
+        type: string
       status:
-        type: number
+        type: string
+  ApiCodeCheckResult:
+    type: object
+    properties:
+      isOk:
+        type: boolean
+      reason:
+        type: string
   ApiContactDiscovery:
     type: object
     properties:
       phone:
-        type: number
-  ApiIntercomToken:
+        type: object
+  ApiGoldenTicket:
     type: object
     properties:
-      token:
-        type: number
+      shortUri:
+        type: string
+      status:
+        type: object
+      ticketId:
+        type: string
+      uri:
+        type: string
+      apiValue:
+        type: string
   ApiInitialTopupStatus:
     type: object
     properties:
       topupAmount:
         type: number
       topupCurrency:
-        type: number
+        type: string
       topupProcessed:
-        type: number
+        type: boolean
+  ApiIntercomToken:
+    type: object
+    properties:
+      token:
+        type: string
   ApiLocalSpend:
     type: object
     properties:
       currency:
-        type: number
+        type: string
       spendToday:
         type: number
   ApiNews:
     type: object
     properties:
       posts:
-        type: number
+        type: array
+        items:
+          type: object
   ApiNewsItem:
     type: object
     properties:
       expires:
-        type: number
+        type: object
       id:
-        type: number
+        type: string
       title:
-        type: number
+        type: string
       uri:
-        type: number
+        type: string
   ApiPostcodeResponse:
     type: object
     properties:
       results:
-        type: number
-  ApiToken:
-    type: object
-    properties:
-      accessToken:
-        type: number
-      clientId:
-        type: number
-      expiresIn:
-        type: number
-      refreshToken:
-        type: number
-      tokenType:
-        type: number
-      userId:
-        type: number
+        type: array
+        items:
+          type: object
   ApiProfile:
     type: object
     properties:
       address:
-        type: number
+        type: object
+        $ref: '#definitions/LegacyApiAddress'
       addressUpdatable:
-        type: number
+        type: boolean
       dateOfBirth:
-        type: number
+        type: string
       email:
-        type: number
+        type: string
       name:
-        type: number
+        type: string
       phoneNumber:
-        type: number
+        type: string
       preferredName:
-        type: number
+        type: string
       userId:
-        type: number
+        type: string
       userNumber:
-        type: number
+        type: object
+  ApiToken:
+    type: object
+    properties:
+      accessToken:
+        type: string
+      clientId:
+        type: string
+      expiresIn:
+        type: string
+      refreshToken:
+        type: string
+      tokenType:
+        type: string
+      userId:
+        type: string
   ApiTransactionResponse:
     type: object
     properties:
       transaction:
-        type: number
+        type: object
+        $ref: '#definitions/ApiTransaction'
   ApiUserSettings:
     type: object
     properties:
       p2pEnabled:
-        type: number
+        type: boolean
   ApiWaitlistPosition:
     type: object
     properties:
       after:
-        type: number
+        type: object
       events:
-        type: number
+        type: array
+        items:
+          type: object
       finished:
-        type: number
+        type: boolean
       ineligible:
-        type: number
+        type: boolean
       position:
-        type: number
+        type: object
       referralBump:
-        type: number
+        type: object
       referralLink:
-        type: number
+        type: string
       userId:
-        type: number
+        type: string
   LegacyApiAddress:
     type: object
     properties:
       administrativeArea:
-        type: number
+        type: string
       country:
-        type: number
+        type: string
       locality:
-        type: number
+        type: string
       postalCode:
-        type: number
+        type: string
       streetAddress:
-        type: number
+        type: array
+        items:
+          type: object
   NotificationMessage:
     type: object
     properties:
       body:
-        type: number
+        type: string
       subtitle:
-        type: number
+        type: string
       title:
-        type: number
+        type: string
   VerificationType:
     type: object
     properties:
       descriptionResId:
-        type: number
+        type: object
       dueDiligenceLevel:
-        type: number
+        type: string
   a:
     type: object
     properties: {}
@@ -1811,531 +1845,531 @@ definitions:
   c:
     type: object
     properties: {}
-  identity_verification/ApiUploadContainer:
+  Action:
     type: object
     properties:
-      fileUrl:
-        type: number
-      uploadUrl:
-        type: number
-  identity_verification/ContentType:
-    type: object
-    properties:
-      mimeType:
-        type: number
-  identity_verification/FileUpload:
-    type: object
-    properties:
-      fileId:
-        type: number
-      uploadUrl:
-        type: number
-  identity_verification/FileType:
-    type: object
-    properties:
-      apiValue:
-        type: number
-  identity_verification/IdentityDocumentType:
-    type: object
-    properties:
-      apiValue:
-        type: number
-      displayNameRes:
-        type: number
-      isBackRequired:
-        type: number
-  identity_verification/IdentityVerification:
-    type: object
-    properties:
-      allowPicker:
-        type: number
-      allowSystemCamera:
-        type: number
-      identityDocUploaded:
-        type: number
-      rejectionNote:
-        type: number
-      rejectionReasonCode:
-        type: number
-      selfieUploaded:
-        type: number
-      status:
-        type: number
-  identity_verification/LegacyIdType$Companion$WhenMappings:
-    type: object
-    properties: {}
-  identity_verification/LegacyIdType:
-    type: object
-    properties:
+      params:
+        type: object
+      title:
+        type: string
       type:
-        type: number
-  identity_verification/LegacyKyc$Status$WhenMappings:
-    type: object
-    properties: {}
-  identity_verification/LegacyKyc:
+        type: string
+      url:
+        type: string
+  Content:
     type: object
     properties:
-      evidenceReviewed:
-        type: number
-      evidenceSubmitted:
-        type: number
+      sections:
+        type: array
+        items:
+          type: object
+  SearchQuery:
+    type: object
+    properties:
+      model:
+        type: string
+      query:
+        type: string
+      sections:
+        type: array
+        items:
+          type: object
+  Section:
+    type: object
+    properties:
+      title:
+        type: string
+      topics:
+        type: array
+        items:
+          type: object
+  Topic:
+    type: object
+    properties:
+      actions:
+        type: array
+        items:
+          type: object
+      content:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+  ServiceStatus:
+    type: object
+    properties:
+      incidents:
+        type: array
+        items:
+          type: object
+  ServiceStatusIncident:
+    type: object
+    properties:
+      id:
+        type: string
+      impact:
+        type: string
+      name:
+        type: string
+      shortlink:
+        type: string
       status:
-        type: number
-  feed/ApiAttachment:
+        type: string
+  ApiPinSms:
+    type: object
+    properties:
+      smsBlocked:
+        type: boolean
+  ApiAttachment:
     type: object
     properties:
       created:
-        type: number
+        type: object
       externalId:
-        type: number
+        type: string
       fileUrl:
-        type: number
+        type: string
       id:
-        type: number
-  feed/ApiCounterparty:
+        type: string
+  ApiCounterparty:
     type: object
     properties:
       accountNumber:
-        type: number
+        type: string
       name:
-        type: number
+        type: string
       number:
-        type: number
+        type: string
       sortCode:
-        type: number
+        type: string
       userId:
-        type: number
-  feed/ApiFeedItem:
+        type: string
+  ApiFeedItem:
     type: object
     properties:
       appUri:
-        type: number
+        type: string
       created:
-        type: number
+        type: object
       externalId:
-        type: number
+        type: string
       id:
-        type: number
+        type: string
       isDismissable:
-        type: number
+        type: boolean
       params:
-        type: number
+        type: object
       transaction:
-        type: number
+        type: object
+        $ref: '#definitions/ApiTransaction'
       type:
-        type: number
+        type: string
       amount:
         type: number
       body:
-        type: number
+        type: string
       currency:
-        type: number
+        type: string
       imageUrl:
-        type: number
+        type: string
       intervalEnd:
-        type: number
+        type: object
       intervalStart:
-        type: number
+        type: object
       intervalType:
-        type: number
+        type: string
       kycRejectedCustomerMessage:
-        type: number
+        type: string
       kycRejectedReason:
-        type: number
+        type: string
       sddMigrationRejectionNote:
-        type: number
+        type: string
       ticketId:
-        type: number
+        type: string
       title:
-        type: number
-  feed/ApiFeedResponse:
+        type: string
+  ApiFeedResponse:
     type: object
     properties:
       items:
-        type: number
-  feed/ApiMerchant:
+        type: array
+        items:
+          type: object
+  ApiMerchant:
     type: object
     properties:
       address:
-        type: number
+        type: object
+        $ref: '#definitions/ApiMerchantAddress'
       atm:
-        type: number
+        type: boolean
       category:
-        type: number
+        type: string
       description:
-        type: number
+        type: string
       emoji:
-        type: number
+        type: string
       groupId:
-        type: number
+        type: string
       id:
-        type: number
+        type: string
       logo:
-        type: number
+        type: string
       name:
-        type: number
+        type: string
       online:
-        type: number
-  feed/ApiMerchantAddress:
+        type: boolean
+  ApiMerchantAddress:
     type: object
     properties:
       formatted:
-        type: number
+        type: string
       latitude:
         type: number
       longitude:
         type: number
       shortFormatted:
-        type: number
-  feed/ApiMetadata:
+        type: string
+  ApiMetadata:
     type: object
     properties:
       bacsDirectDebitInstructionId:
-        type: number
+        type: string
       hideAmount:
-        type: number
+        type: boolean
       inboundP2pId:
-        type: number
+        type: string
       notes:
-        type: number
-  feed/ApiTransaction:
+        type: string
+  ApiTransaction:
     type: object
     properties:
       amount:
         type: number
       attachments:
-        type: number
+        type: array
+        items:
+          type: object
       category:
-        type: number
+        type: string
       counterparty:
-        type: number
+        type: object
+        $ref: '#definitions/ApiCounterparty'
       created:
-        type: number
+        type: object
       currency:
-        type: number
+        type: string
       declineReason:
-        type: number
+        type: string
       description:
-        type: number
+        type: string
       id:
-        type: number
+        type: string
       includeInSpending:
-        type: number
+        type: boolean
       isLoad:
-        type: number
+        type: boolean
       localAmount:
         type: number
       localCurrency:
-        type: number
+        type: string
       merchant:
-        type: number
+        type: object
+        $ref: '#definitions/ApiMerchant'
       metadata:
-        type: number
+        type: object
+        $ref: '#definitions/ApiMetadata'
       scheme:
-        type: number
+        type: string
       settled:
-        type: number
+        type: string
       updated:
-        type: number
-  help/Action:
-    type: object
-    properties:
-      params:
-        type: number
-      title:
-        type: number
-      type:
-        type: number
-      url:
-        type: number
-  help/Content:
-    type: object
-    properties:
-      sections:
-        type: number
-  help/SearchQuery:
-    type: object
-    properties:
-      model:
-        type: number
-      query:
-        type: number
-      sections:
-        type: number
-  help/Section:
-    type: object
-    properties:
-      title:
-        type: number
-      topics:
-        type: number
-  help/Topic:
-    type: object
-    properties:
-      actions:
-        type: number
-      content:
-        type: number
-      id:
-        type: number
-      title:
-        type: number
-  pin/ApiPinSms:
-    type: object
-    properties:
-      smsBlocked:
-        type: number
-  pin/a:
-    type: object
-    properties:
-      prefix:
-        type: number
-  service_status/ServiceStatus:
-    type: object
-    properties:
-      incidents:
-        type: number
-  service_status/ServiceStatusIncident:
-    type: object
-    properties:
-      id:
-        type: number
-      impact:
-        type: number
-      name:
-        type: number
-      shortlink:
-        type: number
-      status:
-        type: number
-  sign_up/SignUpSource:
+        type: object
+  SignUpSource:
     type: object
     properties:
       apiValue:
-        type: number
-  topup/AddStripeCardRequest:
-    type: object
-    properties:
-      accountId:
-        type: number
-      iin:
-        type: number
-      save:
-        type: number
-      stripeToken:
-        type: number
-  topup/ApiStripeCard:
-    type: object
-    properties:
-      brand:
-        type: number
-      endDate:
-        type: number
-      funding:
-        type: number
-      lastFour:
-        type: number
-      stripeCardId:
-        type: number
-  topup/ApiStripeCards:
-    type: object
-    properties:
-      cards:
-        type: number
-  topup/ApiThreeDsResponse:
-    type: object
-    properties:
-      decision:
-        type: number
-      redirectUrl:
-        type: number
-      required:
-        type: number
-      status:
-        type: number
-      stripeSource:
-        type: number
-  topup/ApiTopUpLimits:
-    type: object
-    properties:
-      maxLoad:
-        type: object
-      minLoad:
-        type: object
-  topup/ThreeDSecureRequest:
-    type: object
-    properties:
-      accountId:
-        type: number
-      amount:
-        type: number
-      currency:
-        type: number
-      isInitial:
-        type: number
-      returnUrl:
-        type: number
-      stripeCardId:
-        type: number
-  topup/TopUpRequest:
-    type: object
-    properties:
-      accountId:
-        type: number
-      amount:
-        type: number
-      currency:
-        type: number
-      isInitial:
-        type: number
-      stripeSource:
-        type: number
-      threeDSecureDecision:
-        type: number
-  tracking/Data:
+        type: string
+  Data:
     type: object
     properties:
       activeNotifications:
-        type: number
+        type: integer
       amount:
-        type: number
+        type: integer
       androidPayEnabled:
-        type: number
+        type: boolean
       apiErrorCode:
-        type: number
+        type: string
       apiErrorMessage:
-        type: number
+        type: string
       apiStatusCode:
-        type: number
+        type: integer
       appShortcutType:
-        type: number
+        type: string
       authenticate:
-        type: number
+        type: boolean
       cameFrom:
-        type: number
+        type: string
       category:
-        type: number
+        type: string
       contacts:
-        type: number
+        type: integer
       contactsOnMonzo:
-        type: number
+        type: integer
       description:
-        type: number
+        type: string
       diligence:
-        type: number
+        type: string
       docDone:
-        type: number
+        type: boolean
       docType:
-        type: number
+        type: string
       eligible:
-        type: number
+        type: integer
       enabled:
-        type: number
+        type: boolean
       errorType:
-        type: number
+        type: string
       fallback:
-        type: number
+        type: boolean
       feedback:
-        type: number
+        type: string
       fingerprintAuth:
-        type: number
+        type: string
       firstSampleDelta:
         type: number
       firstTime:
-        type: number
+        type: boolean
       from:
-        type: number
+        type: string
       gpsAdid:
-        type: number
+        type: string
       granted:
-        type: number
+        type: boolean
       kycRejected:
-        type: number
+        type: boolean
       logoutReason:
-        type: number
+        type: string
       memoryError:
-        type: number
+        type: boolean
       method:
-        type: number
+        type: string
       month:
-        type: number
+        type: integer
       newCategory:
-        type: number
+        type: string
       nfcEnabled:
-        type: number
+        type: boolean
       notificationSubType:
-        type: number
+        type: string
       notificationType:
-        type: number
+        type: string
       oldCategory:
-        type: number
+        type: string
       openedFrom:
-        type: number
+        type: string
       optedIn:
-        type: number
+        type: boolean
       outcome:
-        type: number
+        type: string
       path:
-        type: number
+        type: string
       redirectId:
-        type: number
+        type: string
       referrer:
-        type: number
+        type: string
       reportMonth:
-        type: number
+        type: string
       sampleError:
-        type: number
+        type: boolean
       secondSampleDelta:
         type: number
       selfieDone:
-        type: number
+        type: boolean
       splitWith:
-        type: number
+        type: string
       topicId:
-        type: number
+        type: string
       tourPage:
-        type: number
+        type: integer
       traceId:
-        type: number
+        type: string
       transactionId:
-        type: number
+        type: string
       type:
-        type: number
+        type: string
       url:
-        type: number
+        type: string
       userId:
-        type: number
+        type: string
       videoErrorReason:
-        type: number
-  tracking/Impression:
+        type: string
+  Impression:
     type: object
     properties:
       events:
-        type: number
+        type: array
+        items:
+          type: object
       value:
-        type: number
-  tracking/ImpressionEvent:
+        type: string
+  ImpressionEvent:
     type: object
     properties:
       data:
-        type: number
+        type: object
+        $ref: '#definitions/Data'
       name:
-        type: number
+        type: string
       timestamp:
-        type: number
-  tracking/a:
-    type: object
-    properties: {}
-  ApiGoldenTicket:
+        type: string
+  AddStripeCardRequest:
     type: object
     properties:
-      shortUri:
-        type: number
+      accountId:
+        type: string
+      iin:
+        type: string
+      save:
+        type: boolean
+      stripeToken:
+        type: string
+  ApiStripeCard:
+    type: object
+    properties:
+      brand:
+        type: string
+      endDate:
+        type: string
+      funding:
+        type: string
+      lastFour:
+        type: string
+      stripeCardId:
+        type: string
+  ApiStripeCards:
+    type: object
+    properties:
+      cards:
+        type: array
+        items:
+          type: object
+  ApiThreeDsResponse:
+    type: object
+    properties:
+      decision:
+        type: string
+      redirectUrl:
+        type: string
+      required:
+        type: boolean
       status:
+        type: string
+      stripeSource:
+        type: string
+  ApiTopUpLimits:
+    type: object
+    properties:
+      maxLoad:
         type: number
-      ticketId:
+      minLoad:
         type: number
-      uri:
+  ThreeDSecureRequest:
+    type: object
+    properties:
+      accountId:
+        type: string
+      amount:
         type: number
+      currency:
+        type: string
+      isInitial:
+        type: boolean
+      returnUrl:
+        type: string
+      stripeCardId:
+        type: string
+  TopUpRequest:
+    type: object
+    properties:
+      accountId:
+        type: string
+      amount:
+        type: number
+      currency:
+        type: string
+      isInitial:
+        type: boolean
+      stripeSource:
+        type: string
+      threeDSecureDecision:
+        type: string
+  ApiUploadContainer:
+    type: object
+    properties:
+      fileUrl:
+        type: string
+      uploadUrl:
+        type: string
+  ContentType:
+    type: object
+    properties:
+      mimeType:
+        type: string
+  FileType:
+    type: object
+    properties:
       apiValue:
-        type: number
+        type: string
+  FileUpload:
+    type: object
+    properties:
+      fileId:
+        type: string
+      uploadUrl:
+        type: string
+  IdentityDocumentType:
+    type: object
+    properties:
+      apiValue:
+        type: string
+      displayNameRes:
+        type: object
+      isBackRequired:
+        type: boolean
+  IdentityVerification:
+    type: object
+    properties:
+      allowPicker:
+        type: boolean
+      allowSystemCamera:
+        type: boolean
+      identityDocUploaded:
+        type: boolean
+      rejectionNote:
+        type: string
+      rejectionReasonCode:
+        type: string
+      selfieUploaded:
+        type: boolean
+      status:
+        type: object
+  WhenMappings:
+    type: object
+    properties: {}
+  LegacyIdType:
+    type: object
+    properties:
+      type:
+        type: string
+  LegacyKyc:
+    type: object
+    properties:
+      evidenceReviewed:
+        type: boolean
+      evidenceSubmitted:
+        type: boolean
+      status:
+        type: object

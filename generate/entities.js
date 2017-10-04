@@ -17,18 +17,23 @@ let base = 'apk/co/uk/getmondo/api/model/';
 
     let files = await recursive(base);
     files = files.map(f => {
-        let name = /model\/(.*).java/.exec(f);
+        let name = /model\/(.*)\.java/.exec(f);
+        let c = /([a-zA-Z0-9]+)\.java$/.exec(f);
+
         return {
             path: f,
             name: name[1],
+            'class': c[1],
             endpoint: null
         };
     })
 
+    let byClass = _.keyBy(files, 'class');
+
     let entities = {};
 
     for (let file of files) {
-        console.log(file);
+        // console.log(file);
         let contents = fs.readFileSync(file.path, {encoding: 'utf8'});
         // contents = contents.replace(/@Metadata\([\s\S]+^\)/m, '');
         // console.log(contents);
@@ -51,23 +56,44 @@ let base = 'apk/co/uk/getmondo/api/model/';
             };
 
             //array, boolean, integer, null, number, object, string
-            if (['float', 'double', 'short', 'long'].indexOf(matches[1])) {
+            if (['float', 'double', 'short', 'long'].indexOf(matches[1].toLowerCase()) !== -1) {
                 def.type = 'number';
             }
-            else if (matches[1] == 'String') {
+            else if (matches[1].toLowerCase() == 'integer') {
+                def.type = 'integer';
+            }
+            else if (matches[1].toLowerCase() == 'string') {
                 def.type = 'string';
             }
-            else if (matches[1] == 'boolean') {
+            else if (matches[1].toLowerCase() == 'boolean') {
                 def.type = 'boolean';
+            }
+            else if (matches[1] == 'List') {
+                def.type = 'array';
+                def.items = {
+                    type: 'object'
+                }
             }
             else {
                 def.type = 'object';
+
+                console.log(matches[1], matches[1].split('.')[0], file['class']);
+                if (matches[1].split('.')[0] == file['class']) {
+                    //this is a self reference, nothing we can do here, yet..
+                }
+                else {
+                    // def.obj = matches[1];
+                    if (byClass[matches[1]]) {
+                        def.$ref = '#definitions/'+byClass[matches[1]].class
+                    }
+                }
+
             }
 
 
             entity.properties[matches[2]] = def;
         }
-        entities[file.name] = entity;
+        entities[file.class] = entity;
     }
 
     console.log(util.inspect(entities, {depth: null, colors: true}));
