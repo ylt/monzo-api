@@ -4,10 +4,13 @@ Monzo Undocumented API
 
 **Version:** 1.0.0
 
+[Find out more about Swagger](http://swagger.io)
 
 ### /account-settings
 ---
 ##### ***GET***
+**Description:** /account-settings
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -21,6 +24,8 @@ Monzo Undocumented API
 | 200 | Success | [ApiAccountSettings](#apiAccountSettings) |
 
 ##### ***PUT***
+**Description:** /account-settings
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -37,6 +42,8 @@ Monzo Undocumented API
 ### /accounts
 ---
 ##### ***GET***
+**Description:** /accounts
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -52,6 +59,8 @@ Monzo Undocumented API
 ### /api/v2/incidents/unresolved.json
 ---
 ##### ***GET***
+**Description:** /api/v2/incidents/unresolved.json
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -66,6 +75,8 @@ Monzo Undocumented API
 ### /attachment/deregister
 ---
 ##### ***POST***
+**Description:** /attachment/deregister
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -81,6 +92,8 @@ Monzo Undocumented API
 ### /attachment/register
 ---
 ##### ***POST***
+**Description:** /attachment/register
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -98,6 +111,8 @@ Monzo Undocumented API
 ### /attachment/upload
 ---
 ##### ***POST***
+**Description:** /attachment/upload
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -115,6 +130,8 @@ Monzo Undocumented API
 ### /bacs-direct-debits/instructions
 ---
 ##### ***GET***
+**Description:** /bacs-direct-debits/instructions
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -130,6 +147,8 @@ Monzo Undocumented API
 ### /bacs-direct-debits/instructions/{direct_debit_id}/cancel
 ---
 ##### ***PUT***
+**Description:** /bacs-direct-debits/instructions/{direct_debit_id}/cancel
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -149,6 +168,8 @@ Monzo Undocumented API
 ### /balance
 ---
 ##### ***GET***
+**Description:** /balance
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -164,6 +185,8 @@ Monzo Undocumented API
 ### /balance/limits
 ---
 ##### ***GET***
+**Description:** /balance/limits
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -179,6 +202,8 @@ Monzo Undocumented API
 ### /card-activation/activate
 ---
 ##### ***POST***
+**Description:** /card-activation/activate
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -195,6 +220,8 @@ Monzo Undocumented API
 ### /card-dispatch/status
 ---
 ##### ***GET***
+**Description:** /card-dispatch/status
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -210,6 +237,8 @@ Monzo Undocumented API
 ### /card-replacement/activate
 ---
 ##### ***POST***
+**Description:** /card-replacement/activate
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -227,6 +256,8 @@ Monzo Undocumented API
 ### /card-replacement/order
 ---
 ##### ***POST***
+**Description:** /card-replacement/order
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -247,6 +278,8 @@ Monzo Undocumented API
 ### /card/list
 ---
 ##### ***GET***
+**Description:** /card/list
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -262,6 +295,8 @@ Monzo Undocumented API
 ### /card/toggle
 ---
 ##### ***PUT***
+**Description:** /card/toggle
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -278,6 +313,8 @@ Monzo Undocumented API
 ### /config
 ---
 ##### ***GET***
+**Description:** /config
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -292,6 +329,8 @@ Monzo Undocumented API
 ### /contact-discovery/query
 ---
 ##### ***GET***
+**Description:** /contact-discovery/query
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -307,6 +346,8 @@ Monzo Undocumented API
 ### /faster-payments/create
 ---
 ##### ***POST***
+**Description:** /faster-payments/create
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -331,6 +372,8 @@ Monzo Undocumented API
 ### /fcm/register
 ---
 ##### ***POST***
+**Description:** /fcm/register
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -347,6 +390,8 @@ Monzo Undocumented API
 ### /feed
 ---
 ##### ***GET***
+**Description:** /feed
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -363,6 +408,8 @@ Monzo Undocumented API
 ### /feed/{id}
 ---
 ##### ***DELETE***
+**Description:** /feed/{id}
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -378,6 +425,8 @@ Monzo Undocumented API
 ### /geocode/postal-code-lookup
 ---
 ##### ***GET***
+**Description:** /geocode/postal-code-lookup
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -394,6 +443,8 @@ Monzo Undocumented API
 ### /golden-ticket/{id}
 ---
 ##### ***GET***
+**Description:** /golden-ticket/{id}
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -409,6 +460,8 @@ Monzo Undocumented API
 ### /help/content/categories/{id}
 ---
 ##### ***GET***
+**Description:** /help/content/categories/{id}
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -424,6 +477,8 @@ Monzo Undocumented API
 ### /help/content/search
 ---
 ##### ***GET***
+**Description:** /help/content/search
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -439,6 +494,8 @@ Monzo Undocumented API
 ### /help/content/trending
 ---
 ##### ***GET***
+**Description:** /help/content/trending
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -453,6 +510,8 @@ Monzo Undocumented API
 ### /identity-verification/register-identity-document
 ---
 ##### ***POST***
+**Description:** /identity-verification/register-identity-document
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -473,6 +532,8 @@ Monzo Undocumented API
 ### /identity-verification/register-selfie-video
 ---
 ##### ***POST***
+**Description:** /identity-verification/register-selfie-video
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -490,6 +551,8 @@ Monzo Undocumented API
 ### /identity-verification/request-file-upload
 ---
 ##### ***POST***
+**Description:** /identity-verification/request-file-upload
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -509,6 +572,8 @@ Monzo Undocumented API
 ### /identity-verification/status
 ---
 ##### ***GET***
+**Description:** /identity-verification/status
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -524,6 +589,8 @@ Monzo Undocumented API
 ### /identity-verification/submit
 ---
 ##### ***POST***
+**Description:** /identity-verification/submit
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -539,6 +606,8 @@ Monzo Undocumented API
 ### /intercom/tokens/{intercom_app_id}
 ---
 ##### ***GET***
+**Description:** /intercom/tokens/{intercom_app_id}
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -554,6 +623,8 @@ Monzo Undocumented API
 ### /kyc/register
 ---
 ##### ***POST***
+**Description:** /kyc/register
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -571,6 +642,8 @@ Monzo Undocumented API
 ### /kyc/status
 ---
 ##### ***GET***
+**Description:** /kyc/status
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -585,6 +658,8 @@ Monzo Undocumented API
 ### /kyc/upload
 ---
 ##### ***POST***
+**Description:** /kyc/upload
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -601,6 +676,8 @@ Monzo Undocumented API
 ### /news
 ---
 ##### ***GET***
+**Description:** /news
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -615,6 +692,8 @@ Monzo Undocumented API
 ### /oauth2/authorize
 ---
 ##### ***POST***
+**Description:** /oauth2/authorize
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -635,6 +714,8 @@ Monzo Undocumented API
 ### /oauth2/logout
 ---
 ##### ***POST***
+**Description:** /oauth2/logout
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -650,6 +731,8 @@ Monzo Undocumented API
 ### /oauth2/token
 ---
 ##### ***POST***
+**Description:** /oauth2/token
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -668,6 +751,8 @@ Monzo Undocumented API
 ### /p2p/recipients
 ---
 ##### ***POST***
+**Description:** /p2p/recipients
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -683,6 +768,8 @@ Monzo Undocumented API
 ### /p2p/transfer
 ---
 ##### ***POST***
+**Description:** /p2p/transfer
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -705,6 +792,8 @@ Monzo Undocumented API
 ### /payee/validate
 ---
 ##### ***GET***
+**Description:** /payee/validate
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -721,6 +810,8 @@ Monzo Undocumented API
 ### /phone/check-code
 ---
 ##### ***POST***
+**Description:** /phone/check-code
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -737,6 +828,8 @@ Monzo Undocumented API
 ### /phone/send-code
 ---
 ##### ***POST***
+**Description:** /phone/send-code
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -752,6 +845,8 @@ Monzo Undocumented API
 ### /pin/sms
 ---
 ##### ***POST***
+**Description:** /pin/sms
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -768,6 +863,8 @@ Monzo Undocumented API
 ### /pin/sms_blocked
 ---
 ##### ***GET***
+**Description:** /pin/sms_blocked
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -783,6 +880,8 @@ Monzo Undocumented API
 ### /scheduled-payments/series
 ---
 ##### ***GET***
+**Description:** /scheduled-payments/series
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -798,6 +897,8 @@ Monzo Undocumented API
 ### /scheduled-payments/series/fps
 ---
 ##### ***POST***
+**Description:** /scheduled-payments/series/fps
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -825,6 +926,8 @@ Monzo Undocumented API
 ### /scheduled-payments/series/{series_id}
 ---
 ##### ***DELETE***
+**Description:** /scheduled-payments/series/{series_id}
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -844,6 +947,8 @@ Monzo Undocumented API
 ### /signup
 ---
 ##### ***POST***
+**Description:** /signup
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -860,6 +965,8 @@ Monzo Undocumented API
 ### /signup/apply
 ---
 ##### ***POST***
+**Description:** /signup/apply
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -877,6 +984,8 @@ Monzo Undocumented API
 ### /signup/create
 ---
 ##### ***POST***
+**Description:** /signup/create
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -893,6 +1002,8 @@ Monzo Undocumented API
 ### /signup/legal-documents/accept
 ---
 ##### ***POST***
+**Description:** /signup/legal-documents/accept
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -913,6 +1024,8 @@ Monzo Undocumented API
 ### /signup/legal-documents/documents
 ---
 ##### ***GET***
+**Description:** /signup/legal-documents/documents
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -927,6 +1040,8 @@ Monzo Undocumented API
 ### /signup/marketing/subscribe
 ---
 ##### ***POST***
+**Description:** /signup/marketing/subscribe
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -943,6 +1058,8 @@ Monzo Undocumented API
 ### /signup/personal-account/card-order/create
 ---
 ##### ***POST***
+**Description:** /signup/personal-account/card-order/create
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -960,6 +1077,8 @@ Monzo Undocumented API
 ### /signup/personal-account/card-order/options
 ---
 ##### ***GET***
+**Description:** /signup/personal-account/card-order/options
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -974,6 +1093,8 @@ Monzo Undocumented API
 ### /signup/personal-account/start
 ---
 ##### ***POST***
+**Description:** /signup/personal-account/start
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -988,6 +1109,8 @@ Monzo Undocumented API
 ### /signup/personal-account/status
 ---
 ##### ***GET***
+**Description:** /signup/personal-account/status
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1002,6 +1125,8 @@ Monzo Undocumented API
 ### /signup/profile
 ---
 ##### ***GET***
+**Description:** /signup/profile
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1014,6 +1139,8 @@ Monzo Undocumented API
 | 200 | Success |
 
 ##### ***PUT***
+**Description:** /signup/profile
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1031,6 +1158,8 @@ Monzo Undocumented API
 ### /signup/profile/address
 ---
 ##### ***PUT***
+**Description:** /signup/profile/address
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1050,6 +1179,8 @@ Monzo Undocumented API
 ### /signup/profile/address/search
 ---
 ##### ***GET***
+**Description:** /signup/profile/address/search
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1066,6 +1197,8 @@ Monzo Undocumented API
 ### /signup/profile/commit
 ---
 ##### ***POST***
+**Description:** /signup/profile/commit
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1080,6 +1213,8 @@ Monzo Undocumented API
 ### /signup/profile/phone/send
 ---
 ##### ***POST***
+**Description:** /signup/profile/phone/send
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1095,6 +1230,8 @@ Monzo Undocumented API
 ### /signup/profile/phone/verify
 ---
 ##### ***POST***
+**Description:** /signup/profile/phone/verify
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1111,6 +1248,8 @@ Monzo Undocumented API
 ### /stripe/cards
 ---
 ##### ***POST***
+**Description:** /stripe/cards
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1128,6 +1267,8 @@ Monzo Undocumented API
 | 200 | Success | [ApiStripeCards](#apiStripeCards) |
 
 ##### ***GET***
+**Description:** /stripe/cards
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1143,6 +1284,8 @@ Monzo Undocumented API
 ### /stripe/three_d_secure
 ---
 ##### ***POST***
+**Description:** /stripe/three_d_secure
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1164,6 +1307,8 @@ Monzo Undocumented API
 ### /stripe/top_up
 ---
 ##### ***POST***
+**Description:** /stripe/top_up
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1185,6 +1330,8 @@ Monzo Undocumented API
 ### /tax-residency/no-tin
 ---
 ##### ***POST***
+**Description:** /tax-residency/no-tin
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1200,6 +1347,8 @@ Monzo Undocumented API
 ### /tax-residency/status
 ---
 ##### ***GET***
+**Description:** /tax-residency/status
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1214,6 +1363,8 @@ Monzo Undocumented API
 ### /tax-residency/submit
 ---
 ##### ***POST***
+**Description:** /tax-residency/submit
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1228,6 +1379,8 @@ Monzo Undocumented API
 ### /tax-residency/update-self-certification
 ---
 ##### ***POST***
+**Description:** /tax-residency/update-self-certification
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1245,6 +1398,8 @@ Monzo Undocumented API
 ### /tax-residency/update-tin
 ---
 ##### ***POST***
+**Description:** /tax-residency/update-tin
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1262,6 +1417,8 @@ Monzo Undocumented API
 ### /topup/limits
 ---
 ##### ***GET***
+**Description:** /topup/limits
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1277,6 +1434,8 @@ Monzo Undocumented API
 ### /topup/status
 ---
 ##### ***GET***
+**Description:** /topup/status
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1292,6 +1451,8 @@ Monzo Undocumented API
 ### /transactions/update-metadata
 ---
 ##### ***POST***
+**Description:** /transactions/update-metadata
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1308,6 +1469,8 @@ Monzo Undocumented API
 ### /transactions/{transaction_id}
 ---
 ##### ***PATCH***
+**Description:** /transactions/{transaction_id}
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1324,6 +1487,8 @@ Monzo Undocumented API
 ### /user-settings
 ---
 ##### ***PUT***
+**Description:** /user-settings
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1339,6 +1504,8 @@ Monzo Undocumented API
 ### /waitlist
 ---
 ##### ***GET***
+**Description:** /waitlist
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1353,6 +1520,8 @@ Monzo Undocumented API
 ### /waitlist/signup
 ---
 ##### ***POST***
+**Description:** /waitlist/signup
+
 **Parameters**
 
 | Name | Located in | Description | Required | Schema |
@@ -1367,6 +1536,25 @@ Monzo Undocumented API
 ### Models
 ---
 
+<a name="apiAccountSettings"></a>**ApiAccountSettings**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| magstripeAtmEnabled | boolean |  | No |
+| magstripeAtmEnabledFor | number |  | No |
+
+<a name="apiAccounts"></a>**ApiAccounts**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accounts | [ object ] |  | No |
+
+<a name="apiAttachmentResponse"></a>**ApiAttachmentResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| attachment | [ApiAttachment](#apiAttachment) |  | No |
+
 <a name="apiAccount"></a>**ApiAccount**  
 
 | Name | Type | Description | Required |
@@ -1377,44 +1565,6 @@ Monzo Undocumented API
 | id | string |  | No |
 | sortCode | string |  | No |
 | type | string |  | No |
-
-<a name="apiAccounts"></a>**ApiAccounts**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| accounts | [ object ] |  | No |
-
-<a name="apiAddress"></a>**ApiAddress**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| addressId | string |  | No |
-| addressLines | [ object ] |  | No |
-| administrativeArea | string |  | No |
-| countryCode | string |  | No |
-| postalCode | string |  | No |
-
-<a name="apiAttachmentResponse"></a>**ApiAttachmentResponse**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| attachment | [ApiAttachment](#apiAttachment) |  | No |
-
-<a name="apiBalance"></a>**ApiBalance**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| balance | number |  | No |
-| currency | string |  | No |
-| localSpend | [ object ] |  | No |
-| spendToday | number |  | No |
-
-<a name="apiAccountSettings"></a>**ApiAccountSettings**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| magstripeAtmEnabled | boolean |  | No |
-| magstripeAtmEnabledFor | number |  | No |
 
 <a name="apiBalanceLimits"></a>**ApiBalanceLimits**  
 
@@ -1442,6 +1592,25 @@ Monzo Undocumented API
 | monthlyP2pLimitTotal | number |  | No |
 | verificationType | [VerificationType](#verificationType) |  | No |
 
+<a name="apiAddress"></a>**ApiAddress**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| addressId | string |  | No |
+| addressLines | [ object ] |  | No |
+| administrativeArea | string |  | No |
+| countryCode | string |  | No |
+| postalCode | string |  | No |
+
+<a name="apiBalance"></a>**ApiBalance**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| balance | number |  | No |
+| currency | string |  | No |
+| localSpend | [ object ] |  | No |
+| spendToday | number |  | No |
+
 <a name="apiCard"></a>**ApiCard**  
 
 | Name | Type | Description | Required |
@@ -1460,17 +1629,17 @@ Monzo Undocumented API
 | estimatedDeliveryDate | date |  | No |
 | status | object | *TODO: inner class refs | No |
 
-<a name="apiCardResponse"></a>**ApiCardResponse**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| card | [ApiCard](#apiCard) |  | No |
-
 <a name="apiCardReplacementOrder"></a>**ApiCardReplacementOrder**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | estimatedDeliveryDate | date |  | No |
+
+<a name="apiCardResponse"></a>**ApiCardResponse**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| card | [ApiCard](#apiCard) |  | No |
 
 <a name="apiCardsResponse"></a>**ApiCardsResponse**  
 
@@ -1756,6 +1925,28 @@ Monzo Undocumented API
 | settled | string |  | No |
 | updated | date |  | No |
 
+<a name="apiPinSms"></a>**ApiPinSms**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| smsBlocked | boolean |  | No |
+
+<a name="serviceStatus"></a>**ServiceStatus**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| incidents | [ object ] |  | No |
+
+<a name="serviceStatusIncident"></a>**ServiceStatusIncident**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | string |  | No |
+| impact | string |  | No |
+| name | string |  | No |
+| shortlink | string |  | No |
+| status | string |  | No |
+
 <a name="action"></a>**Action**  
 
 | Name | Type | Description | Required |
@@ -1794,77 +1985,6 @@ Monzo Undocumented API
 | content | string |  | No |
 | id | string |  | No |
 | title | string |  | No |
-
-<a name="apiUploadContainer"></a>**ApiUploadContainer**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| fileUrl | string |  | No |
-| uploadUrl | string |  | No |
-
-<a name="contentType"></a>**ContentType**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| mimeType | string |  | No |
-
-<a name="fileType"></a>**FileType**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| apiValue | string |  | No |
-
-<a name="fileUpload"></a>**FileUpload**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| fileId | string |  | No |
-| uploadUrl | string |  | No |
-
-<a name="identityDocumentType"></a>**IdentityDocumentType**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| apiValue | string |  | No |
-| displayNameRes | integer |  | No |
-| isBackRequired | boolean |  | No |
-
-<a name="identityVerification"></a>**IdentityVerification**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| allowPicker | boolean |  | No |
-| allowSystemCamera | boolean |  | No |
-| identityDocUploaded | boolean |  | No |
-| rejectionNote | string |  | No |
-| rejectionReasonCode | string |  | No |
-| selfieUploaded | boolean |  | No |
-| status | object | *TODO: inner class refs | No |
-
-<a name="whenMappings"></a>**WhenMappings**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-
-<a name="legacyIdType"></a>**LegacyIdType**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| type | string |  | No |
-
-<a name="legacyKyc"></a>**LegacyKyc**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| evidenceReviewed | boolean |  | No |
-| evidenceSubmitted | boolean |  | No |
-| status | object | *TODO: inner class refs | No |
-
-<a name="apiPinSms"></a>**ApiPinSms**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| smsBlocked | boolean |  | No |
 
 <a name="signUpSource"></a>**SignUpSource**  
 
@@ -2012,18 +2132,67 @@ Monzo Undocumented API
 | name | string |  | No |
 | timestamp | string |  | No |
 
-<a name="serviceStatus"></a>**ServiceStatus**  
+<a name="apiUploadContainer"></a>**ApiUploadContainer**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| incidents | [ object ] |  | No |
+| fileUrl | string |  | No |
+| uploadUrl | string |  | No |
 
-<a name="serviceStatusIncident"></a>**ServiceStatusIncident**  
+<a name="contentType"></a>**ContentType**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| id | string |  | No |
-| impact | string |  | No |
-| name | string |  | No |
-| shortlink | string |  | No |
-| status | string |  | No |
+| mimeType | string |  | No |
+
+<a name="fileType"></a>**FileType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| apiValue | string |  | No |
+
+<a name="fileUpload"></a>**FileUpload**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| fileId | string |  | No |
+| uploadUrl | string |  | No |
+
+<a name="identityDocumentType"></a>**IdentityDocumentType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| apiValue | string |  | No |
+| displayNameRes | integer |  | No |
+| isBackRequired | boolean |  | No |
+
+<a name="identityVerification"></a>**IdentityVerification**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| allowPicker | boolean |  | No |
+| allowSystemCamera | boolean |  | No |
+| identityDocUploaded | boolean |  | No |
+| rejectionNote | string |  | No |
+| rejectionReasonCode | string |  | No |
+| selfieUploaded | boolean |  | No |
+| status | object | *TODO: inner class refs | No |
+
+<a name="whenMappings"></a>**WhenMappings**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="legacyIdType"></a>**LegacyIdType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| type | string |  | No |
+
+<a name="legacyKyc"></a>**LegacyKyc**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| evidenceReviewed | boolean |  | No |
+| evidenceSubmitted | boolean |  | No |
+| status | object | *TODO: inner class refs | No |

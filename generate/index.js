@@ -100,6 +100,7 @@ function parse(path, ptags) {
             consumes: [],
             tags: ptags,
             parameters: params,
+            description: url,
             responses: {
                 200: {
                     description: 'Success'
@@ -135,25 +136,16 @@ console.log(yaml.safeDump(
         },
         host: "api.monzo.com",
         basePath: "/",
-        tags: [
-            {
-                name: "Account",
-                description: ""
-            },
-            {
-                name: "Topup",
-                description: ""
-            },
-            {
-                name: "user",
-                description: ""
-            },
-        ],
+        tags: [],
         schemes: [
             "https"
         ],
         paths: _(generated).toPairs().sortBy(0).fromPairs().value(),
         securityDefinitions: {},
-        definitions: {}
+        definitions: {},
+        externalDocs: {
+            description: "Find out more about Swagger",
+            url: "http://swagger.io"
+        }
     }
 ));

@@ -79,19 +79,21 @@ let base = 'apk/co/uk/getmondo/api/model/';
                 def.format = "date";
             }
             else {
-                def.type = 'object';
 
                 console.log(matches[1], matches[1].split('.')[0], file['class']);
                 if (matches[1].split('.')[0] == file['class']) {
                     //this is a self reference, nothing we can do here, yet..
+                    def.type = 'object';
                     def.description = '*TODO: inner class refs';
                 }
                 else {
                     // def.obj = matches[1];
                     if (byClass[matches[1]]) {
-                        def.$ref = '#definitions/'+byClass[matches[1]].class
+                        delete def.type;
+                        def.$ref = '#/definitions/'+byClass[matches[1]].class
                     }
                     else {
+                        def.type = 'object';
                         def.description = 'Unknown type: '+matches[1];
                     }
                 }

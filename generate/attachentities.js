@@ -119,9 +119,11 @@ function filter(files, filter, filterend, filtername) {
         let methods = swag.paths[map.endpoint];
         // console.log('m', methods);
         for (let method in methods) {
-            swag.paths[map.endpoint][method].responses['200'].schema = {
-                '$ref': '#definitions/' + map.class
-            };
+            if (map.class in swag.definitions) {
+                swag.paths[map.endpoint][method].responses['200'].schema = {
+                    '$ref': '#/definitions/' + map.class
+                };
+            }
         }
     }
     fs.writeFileSync('swagger.yml', yaml.safeDump(swag))

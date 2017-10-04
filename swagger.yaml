@@ -5,13 +5,7 @@ info:
   title: Monzo Undocumented API
 host: api.monzo.com
 basePath: /
-tags:
-  - name: Account
-    description: ''
-  - name: Topup
-    description: ''
-  - name: user
-    description: ''
+tags: []
 schemes:
   - https
 paths:
@@ -26,11 +20,12 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /account-settings
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiAccountSettings'
+            $ref: '#/definitions/ApiAccountSettings'
     put:
       produces:
         - application/json
@@ -44,11 +39,12 @@ paths:
         - in: formData
           name: magstripe_atm_enabled
           type: boolean
+      description: /account-settings
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiAccountSettings'
+            $ref: '#/definitions/ApiAccountSettings'
   /accounts:
     get:
       produces:
@@ -59,11 +55,12 @@ paths:
         - in: query
           name: account_type
           type: string
+      description: /accounts
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiAccounts'
+            $ref: '#/definitions/ApiAccounts'
   /api/v2/incidents/unresolved.json:
     get:
       produces:
@@ -72,6 +69,7 @@ paths:
       tags:
         - ServiceStatusApi
       parameters: []
+      description: /api/v2/incidents/unresolved.json
       responses:
         '200':
           description: Success
@@ -86,6 +84,7 @@ paths:
         - in: formData
           name: id
           type: string
+      description: /attachment/deregister
       responses:
         '200':
           description: Success
@@ -106,6 +105,7 @@ paths:
         - in: formData
           name: file_url
           type: string
+      description: /attachment/register
       responses:
         '200':
           description: Success
@@ -126,6 +126,7 @@ paths:
         - in: formData
           name: file_type
           type: string
+      description: /attachment/upload
       responses:
         '200':
           description: Success
@@ -140,6 +141,7 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /bacs-direct-debits/instructions
       responses:
         '200':
           description: Success
@@ -167,6 +169,7 @@ paths:
         - in: formData
           name: idempotency_key
           type: string
+      description: '/bacs-direct-debits/instructions/{direct_debit_id}/cancel'
       responses:
         '200':
           description: Success
@@ -180,11 +183,12 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /balance
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiBalance'
+            $ref: '#/definitions/ApiBalance'
   /balance/limits:
     get:
       produces:
@@ -195,11 +199,12 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /balance/limits
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiBalanceLimits'
+            $ref: '#/definitions/ApiBalanceLimits'
   /card-activation/activate:
     post:
       produces:
@@ -214,6 +219,7 @@ paths:
         - in: formData
           name: card_token
           type: string
+      description: /card-activation/activate
       responses:
         '200':
           description: Success
@@ -227,11 +233,12 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /card-dispatch/status
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiCardDispatchStatus'
+            $ref: '#/definitions/ApiCardDispatchStatus'
   /card-replacement/activate:
     post:
       produces:
@@ -249,6 +256,7 @@ paths:
         - in: formData
           name: new_card_token
           type: string
+      description: /card-replacement/activate
       responses:
         '200':
           description: Success
@@ -280,11 +288,12 @@ paths:
         - in: formData
           name: 'address[country]'
           type: string
+      description: /card-replacement/order
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiCardReplacementOrder'
+            $ref: '#/definitions/ApiCardReplacementOrder'
   /card/list:
     get:
       produces:
@@ -295,6 +304,7 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /card/list
       responses:
         '200':
           description: Success
@@ -312,6 +322,7 @@ paths:
         - in: formData
           name: status
           type: string
+      description: /card/toggle
       responses:
         '200':
           description: Success
@@ -322,11 +333,12 @@ paths:
       consumes: []
       tags: *ref_0
       parameters: []
+      description: /config
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiConfig'
+            $ref: '#/definitions/ApiConfig'
   /contact-discovery/query:
     get:
       produces:
@@ -337,6 +349,7 @@ paths:
         - in: query
           name: 'hash[][phone]'
           type: string
+      description: /contact-discovery/query
       responses:
         '200':
           description: Success
@@ -378,6 +391,7 @@ paths:
         - in: formData
           name: reference
           type: string
+      description: /faster-payments/create
       responses:
         '200':
           description: Success
@@ -395,6 +409,7 @@ paths:
         - in: formData
           name: app_id
           type: string
+      description: /fcm/register
       responses:
         '200':
           description: Success
@@ -411,11 +426,12 @@ paths:
         - in: query
           name: start_time
           type: string
+      description: /feed
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiFeedResponse'
+            $ref: '#/definitions/ApiFeedResponse'
   '/feed/{id}':
     delete:
       produces:
@@ -427,11 +443,12 @@ paths:
           name: id
           type: string
           required: true
+      description: '/feed/{id}'
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiFeedItem'
+            $ref: '#/definitions/ApiFeedItem'
   /geocode/postal-code-lookup:
     get:
       produces:
@@ -445,6 +462,7 @@ paths:
         - in: query
           name: country
           type: string
+      description: /geocode/postal-code-lookup
       responses:
         '200':
           description: Success
@@ -459,11 +477,12 @@ paths:
           name: id
           type: string
           required: true
+      description: '/golden-ticket/{id}'
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiGoldenTicket'
+            $ref: '#/definitions/ApiGoldenTicket'
   '/help/content/categories/{id}':
     get:
       produces:
@@ -476,11 +495,12 @@ paths:
           name: id
           type: string
           required: true
+      description: '/help/content/categories/{id}'
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/Section'
+            $ref: '#/definitions/Section'
   /help/content/search:
     get:
       produces:
@@ -491,11 +511,12 @@ paths:
         - in: query
           name: q
           type: string
+      description: /help/content/search
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/SearchQuery'
+            $ref: '#/definitions/SearchQuery'
   /help/content/trending:
     get:
       produces:
@@ -503,6 +524,7 @@ paths:
       consumes: []
       tags: *ref_2
       parameters: []
+      description: /help/content/trending
       responses:
         '200':
           description: Success
@@ -533,6 +555,7 @@ paths:
         - in: formData
           name: secondary_image_file_id
           type: string
+      description: /identity-verification/register-identity-document
       responses:
         '200':
           description: Success
@@ -553,6 +576,7 @@ paths:
         - in: formData
           name: system_camera_used
           type: boolean
+      description: /identity-verification/register-selfie-video
       responses:
         '200':
           description: Success
@@ -579,6 +603,7 @@ paths:
         - in: formData
           name: content_length
           type: number
+      description: /identity-verification/request-file-upload
       responses:
         '200':
           description: Success
@@ -592,6 +617,7 @@ paths:
         - in: query
           name: source
           type: string
+      description: /identity-verification/status
       responses:
         '200':
           description: Success
@@ -606,6 +632,7 @@ paths:
         - in: query
           name: source
           type: string
+      description: /identity-verification/submit
       responses:
         '200':
           description: Success
@@ -620,11 +647,12 @@ paths:
           name: intercom_app_id
           type: string
           required: true
+      description: '/intercom/tokens/{intercom_app_id}'
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiIntercomToken'
+            $ref: '#/definitions/ApiIntercomToken'
   /kyc/register:
     post:
       produces:
@@ -642,6 +670,7 @@ paths:
         - in: formData
           name: evidence_type
           type: string
+      description: /kyc/register
       responses:
         '200':
           description: Success
@@ -652,6 +681,7 @@ paths:
       consumes: []
       tags: *ref_3
       parameters: []
+      description: /kyc/status
       responses:
         '200':
           description: Success
@@ -669,6 +699,7 @@ paths:
         - in: formData
           name: file_type
           type: string
+      description: /kyc/upload
       responses:
         '200':
           description: Success
@@ -679,11 +710,12 @@ paths:
       consumes: []
       tags: *ref_0
       parameters: []
+      description: /news
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiNews'
+            $ref: '#/definitions/ApiNews'
   /oauth2/authorize:
     post:
       produces:
@@ -711,6 +743,7 @@ paths:
         - in: formData
           name: state
           type: string
+      description: /oauth2/authorize
       responses:
         '200':
           description: Success
@@ -725,6 +758,7 @@ paths:
         - in: header
           name: Authorization
           type: string
+      description: /oauth2/logout
       responses:
         '200':
           description: Success
@@ -748,11 +782,12 @@ paths:
         - in: formData
           name: redirect_uri
           type: string
+      description: /oauth2/token
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiToken'
+            $ref: '#/definitions/ApiToken'
   /p2p/recipients:
     post:
       produces:
@@ -764,6 +799,7 @@ paths:
         - in: formData
           name: 'candidate[0][username]'
           type: string
+      description: /p2p/recipients
       responses:
         '200':
           description: Success
@@ -799,6 +835,7 @@ paths:
         - in: formData
           name: notes
           type: string
+      description: /p2p/transfer
       responses:
         '200':
           description: Success
@@ -815,6 +852,7 @@ paths:
         - in: query
           name: sort_code
           type: string
+      description: /payee/validate
       responses:
         '200':
           description: Success
@@ -832,6 +870,7 @@ paths:
         - in: formData
           name: code
           type: string
+      description: /phone/check-code
       responses:
         '200':
           description: Success
@@ -846,6 +885,7 @@ paths:
         - in: formData
           name: phone_number
           type: string
+      description: /phone/send-code
       responses:
         '200':
           description: Success
@@ -863,11 +903,12 @@ paths:
         - in: formData
           name: date_of_birth
           type: string
+      description: /pin/sms
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiPinSms'
+            $ref: '#/definitions/ApiPinSms'
   /pin/sms_blocked:
     get:
       produces:
@@ -878,6 +919,7 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /pin/sms_blocked
       responses:
         '200':
           description: Success
@@ -891,6 +933,7 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /scheduled-payments/series
       responses:
         '200':
           description: Success
@@ -941,6 +984,7 @@ paths:
         - in: formData
           name: end_date
           type: string
+      description: /scheduled-payments/series/fps
       responses:
         '200':
           description: Success
@@ -967,6 +1011,7 @@ paths:
         - in: query
           name: idempotency_key
           type: string
+      description: '/scheduled-payments/series/{series_id}'
       responses:
         '200':
           description: Success
@@ -984,6 +1029,7 @@ paths:
         - in: formData
           name: v2_enabled
           type: boolean
+      description: /signup
       responses:
         '200':
           description: Success
@@ -1004,6 +1050,7 @@ paths:
         - in: formData
           name: 'address[street_address][]'
           type: string
+      description: /signup/apply
       responses:
         '200':
           description: Success
@@ -1021,6 +1068,7 @@ paths:
         - in: formData
           name: 'address[street_address][]'
           type: string
+      description: /signup/create
       responses:
         '200':
           description: Success
@@ -1051,6 +1099,7 @@ paths:
         - in: formData
           name: fscs_information_sheet_version
           type: string
+      description: /signup/legal-documents/accept
       responses:
         '200':
           description: Success
@@ -1061,6 +1110,7 @@ paths:
       consumes: []
       tags: *ref_5
       parameters: []
+      description: /signup/legal-documents/documents
       responses:
         '200':
           description: Success
@@ -1078,6 +1128,7 @@ paths:
         - in: formData
           name: opt_out
           type: boolean
+      description: /signup/marketing/subscribe
       responses:
         '200':
           description: Success
@@ -1098,6 +1149,7 @@ paths:
         - in: formData
           name: pin
           type: string
+      description: /signup/personal-account/card-order/create
       responses:
         '200':
           description: Success
@@ -1108,6 +1160,7 @@ paths:
       consumes: []
       tags: *ref_5
       parameters: []
+      description: /signup/personal-account/card-order/options
       responses:
         '200':
           description: Success
@@ -1119,6 +1172,7 @@ paths:
         - application/x-www-form-urlencoded
       tags: *ref_5
       parameters: []
+      description: /signup/personal-account/start
       responses:
         '200':
           description: Success
@@ -1129,6 +1183,7 @@ paths:
       consumes: []
       tags: *ref_5
       parameters: []
+      description: /signup/personal-account/status
       responses:
         '200':
           description: Success
@@ -1139,6 +1194,7 @@ paths:
       consumes: []
       tags: *ref_5
       parameters: []
+      description: /signup/profile
       responses:
         '200':
           description: Success
@@ -1158,6 +1214,7 @@ paths:
         - in: formData
           name: date_of_birth
           type: string
+      description: /signup/profile
       responses:
         '200':
           description: Success
@@ -1184,6 +1241,7 @@ paths:
         - in: formData
           name: country_code
           type: string
+      description: /signup/profile/address
       responses:
         '200':
           description: Success
@@ -1200,6 +1258,7 @@ paths:
         - in: query
           name: postal_code
           type: string
+      description: /signup/profile/address/search
       responses:
         '200':
           description: Success
@@ -1211,6 +1270,7 @@ paths:
         - application/x-www-form-urlencoded
       tags: *ref_5
       parameters: []
+      description: /signup/profile/commit
       responses:
         '200':
           description: Success
@@ -1225,6 +1285,7 @@ paths:
         - in: formData
           name: phone_number
           type: string
+      description: /signup/profile/phone/send
       responses:
         '200':
           description: Success
@@ -1242,6 +1303,7 @@ paths:
         - in: formData
           name: code
           type: string
+      description: /signup/profile/phone/verify
       responses:
         '200':
           description: Success
@@ -1268,11 +1330,12 @@ paths:
         - in: formData
           name: idempotency_key
           type: string
+      description: /stripe/cards
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiStripeCards'
+            $ref: '#/definitions/ApiStripeCards'
     get:
       produces:
         - application/json
@@ -1282,11 +1345,12 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /stripe/cards
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiStripeCards'
+            $ref: '#/definitions/ApiStripeCards'
   /stripe/three_d_secure:
     post:
       produces:
@@ -1316,11 +1380,12 @@ paths:
         - in: formData
           name: idempotency_key
           type: string
+      description: /stripe/three_d_secure
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiThreeDsResponse'
+            $ref: '#/definitions/ApiThreeDsResponse'
   /stripe/top_up:
     post:
       produces:
@@ -1350,6 +1415,7 @@ paths:
         - in: formData
           name: idempotency_key
           type: string
+      description: /stripe/top_up
       responses:
         '200':
           description: Success
@@ -1365,6 +1431,7 @@ paths:
         - in: formData
           name: country_code
           type: string
+      description: /tax-residency/no-tin
       responses:
         '200':
           description: Success
@@ -1375,6 +1442,7 @@ paths:
       consumes: []
       tags: *ref_6
       parameters: []
+      description: /tax-residency/status
       responses:
         '200':
           description: Success
@@ -1386,6 +1454,7 @@ paths:
         - application/x-www-form-urlencoded
       tags: *ref_6
       parameters: []
+      description: /tax-residency/submit
       responses:
         '200':
           description: Success
@@ -1408,6 +1477,7 @@ paths:
           type: array
           items:
             type: string
+      description: /tax-residency/update-self-certification
       responses:
         '200':
           description: Success
@@ -1428,6 +1498,7 @@ paths:
         - in: formData
           name: value
           type: string
+      description: /tax-residency/update-tin
       responses:
         '200':
           description: Success
@@ -1441,11 +1512,12 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /topup/limits
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiTopUpLimits'
+            $ref: '#/definitions/ApiTopUpLimits'
   /topup/status:
     get:
       produces:
@@ -1456,6 +1528,7 @@ paths:
         - in: query
           name: account_id
           type: string
+      description: /topup/status
       responses:
         '200':
           description: Success
@@ -1473,6 +1546,7 @@ paths:
         - in: formData
           name: 'metadata[notes]'
           type: string
+      description: /transactions/update-metadata
       responses:
         '200':
           description: Success
@@ -1491,11 +1565,12 @@ paths:
         - in: formData
           name: category
           type: string
+      description: '/transactions/{transaction_id}'
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiTransaction'
+            $ref: '#/definitions/ApiTransaction'
   /user-settings:
     put:
       produces:
@@ -1507,11 +1582,12 @@ paths:
         - in: formData
           name: p2p_enabled
           type: boolean
+      description: /user-settings
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiUserSettings'
+            $ref: '#/definitions/ApiUserSettings'
   /waitlist:
     get:
       produces:
@@ -1519,11 +1595,12 @@ paths:
       consumes: []
       tags: *ref_0
       parameters: []
+      description: /waitlist
       responses:
         '200':
           description: Success
           schema:
-            $ref: '#definitions/ApiAttachment'
+            $ref: '#/definitions/ApiAttachment'
   /waitlist/signup:
     post:
       produces:
@@ -1532,11 +1609,31 @@ paths:
         - application/x-www-form-urlencoded
       tags: *ref_0
       parameters: []
+      description: /waitlist/signup
       responses:
         '200':
           description: Success
 securityDefinitions: {}
 definitions:
+  ApiAccountSettings:
+    type: object
+    properties:
+      magstripeAtmEnabled:
+        type: boolean
+      magstripeAtmEnabledFor:
+        type: number
+  ApiAccounts:
+    type: object
+    properties:
+      accounts:
+        type: array
+        items:
+          type: object
+  ApiAttachmentResponse:
+    type: object
+    properties:
+      attachment:
+        $ref: '#/definitions/ApiAttachment'
   ApiAccount:
     type: object
     properties:
@@ -1553,54 +1650,6 @@ definitions:
         type: string
       type:
         type: string
-  ApiAccounts:
-    type: object
-    properties:
-      accounts:
-        type: array
-        items:
-          type: object
-  ApiAddress:
-    type: object
-    properties:
-      addressId:
-        type: string
-      addressLines:
-        type: array
-        items:
-          type: object
-      administrativeArea:
-        type: string
-      countryCode:
-        type: string
-      postalCode:
-        type: string
-  ApiAttachmentResponse:
-    type: object
-    properties:
-      attachment:
-        type: object
-        $ref: '#definitions/ApiAttachment'
-  ApiBalance:
-    type: object
-    properties:
-      balance:
-        type: number
-      currency:
-        type: string
-      localSpend:
-        type: array
-        items:
-          type: object
-      spendToday:
-        type: number
-  ApiAccountSettings:
-    type: object
-    properties:
-      magstripeAtmEnabled:
-        type: boolean
-      magstripeAtmEnabledFor:
-        type: number
   ApiBalanceLimits:
     type: object
     properties:
@@ -1645,8 +1694,35 @@ definitions:
       monthlyP2pLimitTotal:
         type: number
       verificationType:
-        type: object
-        $ref: '#definitions/VerificationType'
+        $ref: '#/definitions/VerificationType'
+  ApiAddress:
+    type: object
+    properties:
+      addressId:
+        type: string
+      addressLines:
+        type: array
+        items:
+          type: object
+      administrativeArea:
+        type: string
+      countryCode:
+        type: string
+      postalCode:
+        type: string
+  ApiBalance:
+    type: object
+    properties:
+      balance:
+        type: number
+      currency:
+        type: string
+      localSpend:
+        type: array
+        items:
+          type: object
+      spendToday:
+        type: number
   ApiCard:
     type: object
     properties:
@@ -1671,18 +1747,17 @@ definitions:
       status:
         type: object
         description: '*TODO: inner class refs'
-  ApiCardResponse:
-    type: object
-    properties:
-      card:
-        type: object
-        $ref: '#definitions/ApiCard'
   ApiCardReplacementOrder:
     type: object
     properties:
       estimatedDeliveryDate:
         type: string
         format: date
+  ApiCardResponse:
+    type: object
+    properties:
+      card:
+        $ref: '#/definitions/ApiCard'
   ApiCardsResponse:
     type: object
     properties:
@@ -1799,8 +1874,7 @@ definitions:
     type: object
     properties:
       address:
-        type: object
-        $ref: '#definitions/LegacyApiAddress'
+        $ref: '#/definitions/LegacyApiAddress'
       addressUpdatable:
         type: boolean
       dateOfBirth:
@@ -1836,8 +1910,7 @@ definitions:
     type: object
     properties:
       transaction:
-        type: object
-        $ref: '#definitions/ApiTransaction'
+        $ref: '#/definitions/ApiTransaction'
   ApiUserSettings:
     type: object
     properties:
@@ -1947,8 +2020,7 @@ definitions:
         type: object
         description: '*TODO: inner class refs'
       transaction:
-        type: object
-        $ref: '#definitions/ApiTransaction'
+        $ref: '#/definitions/ApiTransaction'
       type:
         type: string
       amount:
@@ -1988,8 +2060,7 @@ definitions:
     type: object
     properties:
       address:
-        type: object
-        $ref: '#definitions/ApiMerchantAddress'
+        $ref: '#/definitions/ApiMerchantAddress'
       atm:
         type: boolean
       category:
@@ -2042,8 +2113,7 @@ definitions:
       category:
         type: string
       counterparty:
-        type: object
-        $ref: '#definitions/ApiCounterparty'
+        $ref: '#/definitions/ApiCounterparty'
       created:
         type: string
         format: date
@@ -2064,11 +2134,9 @@ definitions:
       localCurrency:
         type: string
       merchant:
-        type: object
-        $ref: '#definitions/ApiMerchant'
+        $ref: '#/definitions/ApiMerchant'
       metadata:
-        type: object
-        $ref: '#definitions/ApiMetadata'
+        $ref: '#/definitions/ApiMetadata'
       scheme:
         type: string
       settled:
@@ -2076,6 +2144,31 @@ definitions:
       updated:
         type: string
         format: date
+  ApiPinSms:
+    type: object
+    properties:
+      smsBlocked:
+        type: boolean
+  ServiceStatus:
+    type: object
+    properties:
+      incidents:
+        type: array
+        items:
+          type: object
+  ServiceStatusIncident:
+    type: object
+    properties:
+      id:
+        type: string
+      impact:
+        type: string
+      name:
+        type: string
+      shortlink:
+        type: string
+      status:
+        type: string
   Action:
     type: object
     properties:
@@ -2128,80 +2221,6 @@ definitions:
         type: string
       title:
         type: string
-  ApiUploadContainer:
-    type: object
-    properties:
-      fileUrl:
-        type: string
-      uploadUrl:
-        type: string
-  ContentType:
-    type: object
-    properties:
-      mimeType:
-        type: string
-  FileType:
-    type: object
-    properties:
-      apiValue:
-        type: string
-  FileUpload:
-    type: object
-    properties:
-      fileId:
-        type: string
-      uploadUrl:
-        type: string
-  IdentityDocumentType:
-    type: object
-    properties:
-      apiValue:
-        type: string
-      displayNameRes:
-        type: integer
-      isBackRequired:
-        type: boolean
-  IdentityVerification:
-    type: object
-    properties:
-      allowPicker:
-        type: boolean
-      allowSystemCamera:
-        type: boolean
-      identityDocUploaded:
-        type: boolean
-      rejectionNote:
-        type: string
-      rejectionReasonCode:
-        type: string
-      selfieUploaded:
-        type: boolean
-      status:
-        type: object
-        description: '*TODO: inner class refs'
-  WhenMappings:
-    type: object
-    properties: {}
-  LegacyIdType:
-    type: object
-    properties:
-      type:
-        type: string
-  LegacyKyc:
-    type: object
-    properties:
-      evidenceReviewed:
-        type: boolean
-      evidenceSubmitted:
-        type: boolean
-      status:
-        type: object
-        description: '*TODO: inner class refs'
-  ApiPinSms:
-    type: object
-    properties:
-      smsBlocked:
-        type: boolean
   SignUpSource:
     type: object
     properties:
@@ -2416,29 +2435,80 @@ definitions:
     type: object
     properties:
       data:
-        type: object
-        $ref: '#definitions/Data'
+        $ref: '#/definitions/Data'
       name:
         type: string
       timestamp:
         type: string
-  ServiceStatus:
+  ApiUploadContainer:
     type: object
     properties:
-      incidents:
-        type: array
-        items:
-          type: object
-  ServiceStatusIncident:
+      fileUrl:
+        type: string
+      uploadUrl:
+        type: string
+  ContentType:
     type: object
     properties:
-      id:
+      mimeType:
         type: string
-      impact:
+  FileType:
+    type: object
+    properties:
+      apiValue:
         type: string
-      name:
+  FileUpload:
+    type: object
+    properties:
+      fileId:
         type: string
-      shortlink:
+      uploadUrl:
         type: string
+  IdentityDocumentType:
+    type: object
+    properties:
+      apiValue:
+        type: string
+      displayNameRes:
+        type: integer
+      isBackRequired:
+        type: boolean
+  IdentityVerification:
+    type: object
+    properties:
+      allowPicker:
+        type: boolean
+      allowSystemCamera:
+        type: boolean
+      identityDocUploaded:
+        type: boolean
+      rejectionNote:
+        type: string
+      rejectionReasonCode:
+        type: string
+      selfieUploaded:
+        type: boolean
       status:
+        type: object
+        description: '*TODO: inner class refs'
+  WhenMappings:
+    type: object
+    properties: {}
+  LegacyIdType:
+    type: object
+    properties:
+      type:
         type: string
+  LegacyKyc:
+    type: object
+    properties:
+      evidenceReviewed:
+        type: boolean
+      evidenceSubmitted:
+        type: boolean
+      status:
+        type: object
+        description: '*TODO: inner class refs'
+externalDocs:
+  description: Find out more about Swagger
+  url: 'http://swagger.io'
