@@ -1615,86 +1615,6 @@ paths:
           description: Success
 securityDefinitions: {}
 definitions:
-  ApiAccountSettings:
-    type: object
-    properties:
-      magstripeAtmEnabled:
-        type: boolean
-      magstripeAtmEnabledFor:
-        type: number
-  ApiAccounts:
-    type: object
-    properties:
-      accounts:
-        type: array
-        items:
-          type: object
-  ApiAttachmentResponse:
-    type: object
-    properties:
-      attachment:
-        $ref: '#/definitions/ApiAttachment'
-  ApiAccount:
-    type: object
-    properties:
-      accountNumber:
-        type: string
-      created:
-        type: string
-        format: date
-      description:
-        type: string
-      id:
-        type: string
-      sortCode:
-        type: string
-      type:
-        type: string
-  ApiBalanceLimits:
-    type: object
-    properties:
-      annualCashLimit:
-        type: number
-      annualCashLimitTotal:
-        type: number
-      annualLoadLimit:
-        type: number
-      annualLoadLimitTotal:
-        type: number
-      dailyCashLimit:
-        type: number
-      dailyCashLimitTotal:
-        type: number
-      dailyLoadLimit:
-        type: number
-      dailyLoadLimitTotal:
-        type: number
-      inboundP2pMax:
-        type: number
-      maxBalance:
-        type: number
-      maxSingleP2pLimit:
-        type: number
-      maxSinglePosLimit:
-        type: number
-      monthlyCashLimit:
-        type: number
-      monthlyCashLimitTotal:
-        type: number
-      monthlyInboundP2pLimit:
-        type: number
-      monthlyInboundP2pLimitTotal:
-        type: number
-      monthlyLoadLimit:
-        type: number
-      monthlyLoadLimitTotal:
-        type: number
-      monthlyP2pLimit:
-        type: number
-      monthlyP2pLimitTotal:
-        type: number
-      verificationType:
-        $ref: '#/definitions/VerificationType'
   ApiAddress:
     type: object
     properties:
@@ -1703,26 +1623,122 @@ definitions:
       addressLines:
         type: array
         items:
-          type: object
+          type: string
       administrativeArea:
         type: string
       countryCode:
         type: string
       postalCode:
         type: string
+  ApiAccounts:
+    type: object
+    properties:
+      accounts:
+        type: array
+        items:
+          $ref: '#/definitions/ApiAccount'
+  ApiAttachmentResponse:
+    type: object
+    properties:
+      attachment:
+        $ref: '#/definitions/ApiAttachment'
+  ApiAccountSettings:
+    type: object
+    properties:
+      magstripeAtmEnabled:
+        type: boolean
+      magstripeAtmEnabledFor:
+        type: integer
+        format: int64
+  ApiBalanceLimits:
+    type: object
+    properties:
+      annualCashLimit:
+        type: number
+        format: double
+      annualCashLimitTotal:
+        type: number
+        format: double
+      annualLoadLimit:
+        type: number
+        format: double
+      annualLoadLimitTotal:
+        type: number
+        format: double
+      dailyCashLimit:
+        type: number
+        format: double
+      dailyCashLimitTotal:
+        type: number
+        format: double
+      dailyLoadLimit:
+        type: number
+        format: double
+      dailyLoadLimitTotal:
+        type: number
+        format: double
+      inboundP2pMax:
+        type: number
+        format: double
+      maxBalance:
+        type: number
+        format: double
+      maxSingleP2pLimit:
+        type: number
+        format: double
+      maxSinglePosLimit:
+        type: number
+        format: double
+      monthlyCashLimit:
+        type: number
+        format: double
+      monthlyCashLimitTotal:
+        type: number
+        format: double
+      monthlyInboundP2pLimit:
+        type: number
+        format: double
+      monthlyInboundP2pLimitTotal:
+        type: number
+        format: double
+      monthlyLoadLimit:
+        type: number
+        format: double
+      monthlyLoadLimitTotal:
+        type: number
+        format: double
+      monthlyP2pLimit:
+        type: number
+        format: double
+      monthlyP2pLimitTotal:
+        type: number
+        format: double
+      verificationType:
+        $ref: '#/definitions/VerificationType'
   ApiBalance:
     type: object
     properties:
       balance:
-        type: number
+        type: integer
+        format: int64
       currency:
         type: string
       localSpend:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/ApiLocalSpend'
       spendToday:
-        type: number
+        type: integer
+        format: int64
+  ApiCardDispatchStatus:
+    type: object
+    properties:
+      estimatedDeliveryDate:
+        type: string
+        format: date-time
+      status:
+        type: object
+        description: 'Unknown type: DispatchStatus'
   ApiCard:
     type: object
     properties:
@@ -1735,24 +1751,32 @@ definitions:
       processorToken:
         type: string
       replacementOrdered:
-        type: number
+        type: integer
+        format: int64
       status:
         type: string
-  ApiCardDispatchStatus:
+  ApiAccount:
     type: object
     properties:
-      estimatedDeliveryDate:
+      accountNumber:
         type: string
-        format: date
-      status:
-        type: object
-        description: '*TODO: inner class refs'
+      created:
+        type: string
+        format: date-time
+      description:
+        type: string
+      id:
+        type: string
+      sortCode:
+        type: string
+      type:
+        type: string
   ApiCardReplacementOrder:
     type: object
     properties:
       estimatedDeliveryDate:
         type: string
-        format: date
+        format: date-time
   ApiCardResponse:
     type: object
     properties:
@@ -1764,7 +1788,7 @@ definitions:
       cards:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/ApiCard'
   ApiCodeCheckResult:
     type: object
     properties:
@@ -1777,38 +1801,27 @@ definitions:
     properties:
       featureFlags:
         type: object
-        description: '*TODO: inner class refs'
+        description: 'Unknown type: FeatureFlags'
       inboundP2p:
         type: object
-        description: '*TODO: inner class refs'
+        description: 'Unknown type: InboundP2p'
       p2p:
         type: object
-        description: '*TODO: inner class refs'
+        description: 'Unknown type: P2p'
       sddSplashscreen:
         type: string
       username:
         type: object
-        description: '*TODO: inner class refs'
-      isIdentityVerificationHelpEnabled:
-        type: boolean
-      enabled:
-        type: boolean
-      max:
-        type: integer
-      min:
-        type: integer
-      reason:
-        type: string
-      primary:
-        type: string
-      status:
-        type: string
+        description: 'Unknown type: MonzoMeUsername'
   ApiContactDiscovery:
     type: object
     properties:
       phone:
         type: object
-        description: 'Unknown type: Map'
+        description: 'Unknown type: Map<String, List'
+        items:
+          type: object
+          description: 'Unknown type: String>'
   ApiGoldenTicket:
     type: object
     properties:
@@ -1816,18 +1829,17 @@ definitions:
         type: string
       status:
         type: object
-        description: '*TODO: inner class refs'
+        description: 'Unknown type: GoldenTicketStatus'
       ticketId:
         type: string
       uri:
-        type: string
-      apiValue:
         type: string
   ApiInitialTopupStatus:
     type: object
     properties:
       topupAmount:
-        type: number
+        type: integer
+        format: int64
       topupCurrency:
         type: string
       topupProcessed:
@@ -1843,20 +1855,21 @@ definitions:
       currency:
         type: string
       spendToday:
-        type: number
+        type: integer
+        format: int64
   ApiNews:
     type: object
     properties:
       posts:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/ApiNewsItem'
   ApiNewsItem:
     type: object
     properties:
       expires:
         type: string
-        format: date
+        format: date-time
       id:
         type: string
       title:
@@ -1869,7 +1882,7 @@ definitions:
       results:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/LegacyApiAddress'
   ApiProfile:
     type: object
     properties:
@@ -1891,6 +1904,7 @@ definitions:
         type: string
       userNumber:
         type: integer
+        format: int32
   ApiToken:
     type: object
     properties:
@@ -1921,18 +1935,21 @@ definitions:
     properties:
       after:
         type: integer
+        format: int32
       events:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/c'
       finished:
         type: boolean
       ineligible:
         type: boolean
       position:
         type: integer
+        format: int32
       referralBump:
         type: integer
+        format: int32
       referralLink:
         type: string
       userId:
@@ -1951,7 +1968,7 @@ definitions:
       streetAddress:
         type: array
         items:
-          type: object
+          type: string
   NotificationMessage:
     type: object
     properties:
@@ -1963,11 +1980,7 @@ definitions:
         type: string
   VerificationType:
     type: object
-    properties:
-      descriptionResId:
-        type: integer
-      dueDiligenceLevel:
-        type: string
+    properties: {}
   a:
     type: object
     properties: {}
@@ -1977,12 +1990,66 @@ definitions:
   c:
     type: object
     properties: {}
+  ApiUploadContainer:
+    type: object
+    properties:
+      fileUrl:
+        type: string
+      uploadUrl:
+        type: string
+  ContentType:
+    type: object
+    properties: {}
+  FileType:
+    type: object
+    properties: {}
+  FileUpload:
+    type: object
+    properties:
+      fileId:
+        type: string
+      uploadUrl:
+        type: string
+  IdentityDocumentType:
+    type: object
+    properties: {}
+  IdentityVerification:
+    type: object
+    properties:
+      allowPicker:
+        type: boolean
+      allowSystemCamera:
+        type: boolean
+      identityDocUploaded:
+        type: boolean
+      rejectionNote:
+        type: string
+      rejectionReasonCode:
+        type: string
+      selfieUploaded:
+        type: boolean
+      status:
+        type: object
+        description: 'Unknown type: Status'
+  LegacyIdType:
+    type: object
+    properties: {}
+  LegacyKyc:
+    type: object
+    properties:
+      evidenceReviewed:
+        type: boolean
+      evidenceSubmitted:
+        type: boolean
+      status:
+        type: object
+        description: 'Unknown type: Status'
   ApiAttachment:
     type: object
     properties:
       created:
         type: string
-        format: date
+        format: date-time
       externalId:
         type: string
       fileUrl:
@@ -2009,7 +2076,7 @@ definitions:
         type: string
       created:
         type: string
-        format: date
+        format: date-time
       externalId:
         type: string
       id:
@@ -2018,36 +2085,10 @@ definitions:
         type: boolean
       params:
         type: object
-        description: '*TODO: inner class refs'
+        description: 'Unknown type: Params'
       transaction:
         $ref: '#/definitions/ApiTransaction'
       type:
-        type: string
-      amount:
-        type: number
-      body:
-        type: string
-      currency:
-        type: string
-      imageUrl:
-        type: string
-      intervalEnd:
-        type: string
-        format: date
-      intervalStart:
-        type: string
-        format: date
-      intervalType:
-        type: string
-      kycRejectedCustomerMessage:
-        type: string
-      kycRejectedReason:
-        type: string
-      sddMigrationRejectionNote:
-        type: string
-      ticketId:
-        type: string
-      title:
         type: string
   ApiFeedResponse:
     type: object
@@ -2055,7 +2096,7 @@ definitions:
       items:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/ApiFeedItem'
   ApiMerchant:
     type: object
     properties:
@@ -2086,8 +2127,10 @@ definitions:
         type: string
       latitude:
         type: number
+        format: double
       longitude:
         type: number
+        format: double
       shortFormatted:
         type: string
   ApiMetadata:
@@ -2105,18 +2148,19 @@ definitions:
     type: object
     properties:
       amount:
-        type: number
+        type: integer
+        format: int64
       attachments:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/ApiAttachment'
       category:
         type: string
       counterparty:
         $ref: '#/definitions/ApiCounterparty'
       created:
         type: string
-        format: date
+        format: date-time
       currency:
         type: string
       declineReason:
@@ -2130,7 +2174,8 @@ definitions:
       isLoad:
         type: boolean
       localAmount:
-        type: number
+        type: integer
+        format: int64
       localCurrency:
         type: string
       merchant:
@@ -2143,19 +2188,72 @@ definitions:
         type: string
       updated:
         type: string
-        format: date
+        format: date-time
   ApiPinSms:
     type: object
     properties:
       smsBlocked:
         type: boolean
+  SignUpSource:
+    type: object
+    properties: {}
+  Action:
+    type: object
+    properties:
+      params:
+        type: object
+        description: 'Unknown type: Params'
+      title:
+        type: string
+      type:
+        type: string
+  Content:
+    type: object
+    properties:
+      sections:
+        type: array
+        items:
+          $ref: '#/definitions/Section'
+  SearchQuery:
+    type: object
+    properties:
+      model:
+        type: string
+      query:
+        type: string
+      sections:
+        type: array
+        items:
+          $ref: '#/definitions/Section'
+  Section:
+    type: object
+    properties:
+      title:
+        type: string
+      topics:
+        type: array
+        items:
+          $ref: '#/definitions/Topic'
+  Topic:
+    type: object
+    properties:
+      actions:
+        type: array
+        items:
+          $ref: '#/definitions/Action'
+      content:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
   ServiceStatus:
     type: object
     properties:
       incidents:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/ServiceStatusIncident'
   ServiceStatusIncident:
     type: object
     properties:
@@ -2169,62 +2267,142 @@ definitions:
         type: string
       status:
         type: string
-  Action:
+  Data:
     type: object
     properties:
-      params:
-        type: object
-        description: '*TODO: inner class refs'
-      title:
+      activeNotifications:
+        type: integer
+        format: int32
+      amount:
+        type: integer
+        format: int32
+      androidPayEnabled:
+        type: boolean
+      apiErrorCode:
+        type: string
+      apiErrorMessage:
+        type: string
+      apiStatusCode:
+        type: integer
+        format: int32
+      appShortcutType:
+        type: string
+      authenticate:
+        type: boolean
+      cameFrom:
+        type: string
+      category:
+        type: string
+      contacts:
+        type: integer
+        format: int32
+      contactsOnMonzo:
+        type: integer
+        format: int32
+      description:
+        type: string
+      diligence:
+        type: string
+      docDone:
+        type: boolean
+      docType:
+        type: string
+      eligible:
+        type: integer
+        format: int32
+      enabled:
+        type: boolean
+      errorType:
+        type: string
+      fallback:
+        type: boolean
+      feedback:
+        type: string
+      fingerprintAuth:
+        type: string
+      firstSampleDelta:
+        type: integer
+        format: int64
+      firstTime:
+        type: boolean
+      from:
+        type: string
+      gpsAdid:
+        type: string
+      granted:
+        type: boolean
+      kycRejected:
+        type: boolean
+      logoutReason:
+        type: string
+      memoryError:
+        type: boolean
+      method:
+        type: string
+      month:
+        type: integer
+        format: int32
+      newCategory:
+        type: string
+      nfcEnabled:
+        type: boolean
+      notificationSubType:
+        type: string
+      notificationType:
+        type: string
+      oldCategory:
+        type: string
+      openedFrom:
+        type: string
+      optedIn:
+        type: boolean
+      outcome:
+        type: string
+      path:
+        type: string
+      redirectId:
+        type: string
+      referrer:
+        type: string
+      reportMonth:
+        type: string
+      sampleError:
+        type: boolean
+      secondSampleDelta:
+        type: integer
+        format: int64
+      selfieDone:
+        type: boolean
+      splitWith:
+        type: string
+      topicId:
+        type: string
+      tourPage:
+        type: integer
+        format: int32
+      traceId:
+        type: string
+      transactionId:
         type: string
       type:
         type: string
       url:
         type: string
-  Content:
+      userId:
+        type: string
+      videoErrorReason:
+        type: string
+  Impression:
+    type: object
+    properties: {}
+  ImpressionEvent:
     type: object
     properties:
-      sections:
-        type: array
-        items:
-          type: object
-  SearchQuery:
-    type: object
-    properties:
-      model:
+      data:
+        $ref: '#/definitions/Data'
+      name:
         type: string
-      query:
-        type: string
-      sections:
-        type: array
-        items:
-          type: object
-  Section:
-    type: object
-    properties:
-      title:
-        type: string
-      topics:
-        type: array
-        items:
-          type: object
-  Topic:
-    type: object
-    properties:
-      actions:
-        type: array
-        items:
-          type: object
-      content:
-        type: string
-      id:
-        type: string
-      title:
-        type: string
-  SignUpSource:
-    type: object
-    properties:
-      apiValue:
+      timestamp:
         type: string
   AddStripeCardRequest:
     type: object
@@ -2256,7 +2434,7 @@ definitions:
       cards:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/ApiStripeCard'
   ApiThreeDsResponse:
     type: object
     properties:
@@ -2275,15 +2453,18 @@ definitions:
     properties:
       maxLoad:
         type: number
+        format: float
       minLoad:
         type: number
+        format: float
   ThreeDSecureRequest:
     type: object
     properties:
       accountId:
         type: string
       amount:
-        type: number
+        type: integer
+        format: int64
       currency:
         type: string
       isInitial:
@@ -2298,7 +2479,8 @@ definitions:
       accountId:
         type: string
       amount:
-        type: number
+        type: integer
+        format: int64
       currency:
         type: string
       isInitial:
@@ -2307,208 +2489,6 @@ definitions:
         type: string
       threeDSecureDecision:
         type: string
-  Data:
-    type: object
-    properties:
-      activeNotifications:
-        type: integer
-      amount:
-        type: integer
-      androidPayEnabled:
-        type: boolean
-      apiErrorCode:
-        type: string
-      apiErrorMessage:
-        type: string
-      apiStatusCode:
-        type: integer
-      appShortcutType:
-        type: string
-      authenticate:
-        type: boolean
-      cameFrom:
-        type: string
-      category:
-        type: string
-      contacts:
-        type: integer
-      contactsOnMonzo:
-        type: integer
-      description:
-        type: string
-      diligence:
-        type: string
-      docDone:
-        type: boolean
-      docType:
-        type: string
-      eligible:
-        type: integer
-      enabled:
-        type: boolean
-      errorType:
-        type: string
-      fallback:
-        type: boolean
-      feedback:
-        type: string
-      fingerprintAuth:
-        type: string
-      firstSampleDelta:
-        type: number
-      firstTime:
-        type: boolean
-      from:
-        type: string
-      gpsAdid:
-        type: string
-      granted:
-        type: boolean
-      kycRejected:
-        type: boolean
-      logoutReason:
-        type: string
-      memoryError:
-        type: boolean
-      method:
-        type: string
-      month:
-        type: integer
-      newCategory:
-        type: string
-      nfcEnabled:
-        type: boolean
-      notificationSubType:
-        type: string
-      notificationType:
-        type: string
-      oldCategory:
-        type: string
-      openedFrom:
-        type: string
-      optedIn:
-        type: boolean
-      outcome:
-        type: string
-      path:
-        type: string
-      redirectId:
-        type: string
-      referrer:
-        type: string
-      reportMonth:
-        type: string
-      sampleError:
-        type: boolean
-      secondSampleDelta:
-        type: number
-      selfieDone:
-        type: boolean
-      splitWith:
-        type: string
-      topicId:
-        type: string
-      tourPage:
-        type: integer
-      traceId:
-        type: string
-      transactionId:
-        type: string
-      type:
-        type: string
-      url:
-        type: string
-      userId:
-        type: string
-      videoErrorReason:
-        type: string
-  Impression:
-    type: object
-    properties:
-      events:
-        type: array
-        items:
-          type: object
-      value:
-        type: string
-  ImpressionEvent:
-    type: object
-    properties:
-      data:
-        $ref: '#/definitions/Data'
-      name:
-        type: string
-      timestamp:
-        type: string
-  ApiUploadContainer:
-    type: object
-    properties:
-      fileUrl:
-        type: string
-      uploadUrl:
-        type: string
-  ContentType:
-    type: object
-    properties:
-      mimeType:
-        type: string
-  FileType:
-    type: object
-    properties:
-      apiValue:
-        type: string
-  FileUpload:
-    type: object
-    properties:
-      fileId:
-        type: string
-      uploadUrl:
-        type: string
-  IdentityDocumentType:
-    type: object
-    properties:
-      apiValue:
-        type: string
-      displayNameRes:
-        type: integer
-      isBackRequired:
-        type: boolean
-  IdentityVerification:
-    type: object
-    properties:
-      allowPicker:
-        type: boolean
-      allowSystemCamera:
-        type: boolean
-      identityDocUploaded:
-        type: boolean
-      rejectionNote:
-        type: string
-      rejectionReasonCode:
-        type: string
-      selfieUploaded:
-        type: boolean
-      status:
-        type: object
-        description: '*TODO: inner class refs'
-  WhenMappings:
-    type: object
-    properties: {}
-  LegacyIdType:
-    type: object
-    properties:
-      type:
-        type: string
-  LegacyKyc:
-    type: object
-    properties:
-      evidenceReviewed:
-        type: boolean
-      evidenceSubmitted:
-        type: boolean
-      status:
-        type: object
-        description: '*TODO: inner class refs'
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'

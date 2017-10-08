@@ -46,8 +46,8 @@ function filter(files, filter, filterend, filtername) {
 (async () => {
     let files = await recursive(base);
     files = files.map(f => {
-        let name = /model\/(.*)\.java/.exec(f);
-        let c = /([a-zA-Z0-9]+)\.java$/.exec(f);
+        let name = /model\/(.*)\.(java|kt)/.exec(f);
+        let c = /([a-zA-Z0-9]+)\.(java|kt)$/.exec(f);
 
         return {
             path: f,

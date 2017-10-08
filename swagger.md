@@ -1536,18 +1536,21 @@ Monzo Undocumented API
 ### Models
 ---
 
-<a name="apiAccountSettings"></a>**ApiAccountSettings**  
+<a name="apiAddress"></a>**ApiAddress**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| magstripeAtmEnabled | boolean |  | No |
-| magstripeAtmEnabledFor | number |  | No |
+| addressId | string |  | No |
+| addressLines | [ string ] |  | No |
+| administrativeArea | string |  | No |
+| countryCode | string |  | No |
+| postalCode | string |  | No |
 
 <a name="apiAccounts"></a>**ApiAccounts**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| accounts | [ object ] |  | No |
+| accounts | [ [ApiAccount](#apiAccount) ] |  | No |
 
 <a name="apiAttachmentResponse"></a>**ApiAttachmentResponse**  
 
@@ -1555,61 +1558,54 @@ Monzo Undocumented API
 | ---- | ---- | ----------- | -------- |
 | attachment | [ApiAttachment](#apiAttachment) |  | No |
 
-<a name="apiAccount"></a>**ApiAccount**  
+<a name="apiAccountSettings"></a>**ApiAccountSettings**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| accountNumber | string |  | No |
-| created | date |  | No |
-| description | string |  | No |
-| id | string |  | No |
-| sortCode | string |  | No |
-| type | string |  | No |
+| magstripeAtmEnabled | boolean |  | No |
+| magstripeAtmEnabledFor | long |  | No |
 
 <a name="apiBalanceLimits"></a>**ApiBalanceLimits**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| annualCashLimit | number |  | No |
-| annualCashLimitTotal | number |  | No |
-| annualLoadLimit | number |  | No |
-| annualLoadLimitTotal | number |  | No |
-| dailyCashLimit | number |  | No |
-| dailyCashLimitTotal | number |  | No |
-| dailyLoadLimit | number |  | No |
-| dailyLoadLimitTotal | number |  | No |
-| inboundP2pMax | number |  | No |
-| maxBalance | number |  | No |
-| maxSingleP2pLimit | number |  | No |
-| maxSinglePosLimit | number |  | No |
-| monthlyCashLimit | number |  | No |
-| monthlyCashLimitTotal | number |  | No |
-| monthlyInboundP2pLimit | number |  | No |
-| monthlyInboundP2pLimitTotal | number |  | No |
-| monthlyLoadLimit | number |  | No |
-| monthlyLoadLimitTotal | number |  | No |
-| monthlyP2pLimit | number |  | No |
-| monthlyP2pLimitTotal | number |  | No |
+| annualCashLimit | double |  | No |
+| annualCashLimitTotal | double |  | No |
+| annualLoadLimit | double |  | No |
+| annualLoadLimitTotal | double |  | No |
+| dailyCashLimit | double |  | No |
+| dailyCashLimitTotal | double |  | No |
+| dailyLoadLimit | double |  | No |
+| dailyLoadLimitTotal | double |  | No |
+| inboundP2pMax | double |  | No |
+| maxBalance | double |  | No |
+| maxSingleP2pLimit | double |  | No |
+| maxSinglePosLimit | double |  | No |
+| monthlyCashLimit | double |  | No |
+| monthlyCashLimitTotal | double |  | No |
+| monthlyInboundP2pLimit | double |  | No |
+| monthlyInboundP2pLimitTotal | double |  | No |
+| monthlyLoadLimit | double |  | No |
+| monthlyLoadLimitTotal | double |  | No |
+| monthlyP2pLimit | double |  | No |
+| monthlyP2pLimitTotal | double |  | No |
 | verificationType | [VerificationType](#verificationType) |  | No |
-
-<a name="apiAddress"></a>**ApiAddress**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| addressId | string |  | No |
-| addressLines | [ object ] |  | No |
-| administrativeArea | string |  | No |
-| countryCode | string |  | No |
-| postalCode | string |  | No |
 
 <a name="apiBalance"></a>**ApiBalance**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| balance | number |  | No |
+| balance | long |  | No |
 | currency | string |  | No |
-| localSpend | [ object ] |  | No |
-| spendToday | number |  | No |
+| localSpend | [ [ApiLocalSpend](#apiLocalSpend) ] |  | No |
+| spendToday | long |  | No |
+
+<a name="apiCardDispatchStatus"></a>**ApiCardDispatchStatus**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| estimatedDeliveryDate | dateTime |  | No |
+| status | object | Unknown type: DispatchStatus | No |
 
 <a name="apiCard"></a>**ApiCard**  
 
@@ -1619,21 +1615,25 @@ Monzo Undocumented API
 | id | string |  | No |
 | lastDigits | string |  | No |
 | processorToken | string |  | No |
-| replacementOrdered | number |  | No |
+| replacementOrdered | long |  | No |
 | status | string |  | No |
 
-<a name="apiCardDispatchStatus"></a>**ApiCardDispatchStatus**  
+<a name="apiAccount"></a>**ApiAccount**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| estimatedDeliveryDate | date |  | No |
-| status | object | *TODO: inner class refs | No |
+| accountNumber | string |  | No |
+| created | dateTime |  | No |
+| description | string |  | No |
+| id | string |  | No |
+| sortCode | string |  | No |
+| type | string |  | No |
 
 <a name="apiCardReplacementOrder"></a>**ApiCardReplacementOrder**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| estimatedDeliveryDate | date |  | No |
+| estimatedDeliveryDate | dateTime |  | No |
 
 <a name="apiCardResponse"></a>**ApiCardResponse**  
 
@@ -1645,7 +1645,7 @@ Monzo Undocumented API
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| cards | [ object ] |  | No |
+| cards | [ [ApiCard](#apiCard) ] |  | No |
 
 <a name="apiCodeCheckResult"></a>**ApiCodeCheckResult**  
 
@@ -1658,40 +1658,32 @@ Monzo Undocumented API
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| featureFlags | object | *TODO: inner class refs | No |
-| inboundP2p | object | *TODO: inner class refs | No |
-| p2p | object | *TODO: inner class refs | No |
+| featureFlags | object | Unknown type: FeatureFlags | No |
+| inboundP2p | object | Unknown type: InboundP2p | No |
+| p2p | object | Unknown type: P2p | No |
 | sddSplashscreen | string |  | No |
-| username | object | *TODO: inner class refs | No |
-| isIdentityVerificationHelpEnabled | boolean |  | No |
-| enabled | boolean |  | No |
-| max | integer |  | No |
-| min | integer |  | No |
-| reason | string |  | No |
-| primary | string |  | No |
-| status | string |  | No |
+| username | object | Unknown type: MonzoMeUsername | No |
 
 <a name="apiContactDiscovery"></a>**ApiContactDiscovery**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| phone | object | Unknown type: Map | No |
+| phone | object | Unknown type: Map<String, List | No |
 
 <a name="apiGoldenTicket"></a>**ApiGoldenTicket**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | shortUri | string |  | No |
-| status | object | *TODO: inner class refs | No |
+| status | object | Unknown type: GoldenTicketStatus | No |
 | ticketId | string |  | No |
 | uri | string |  | No |
-| apiValue | string |  | No |
 
 <a name="apiInitialTopupStatus"></a>**ApiInitialTopupStatus**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| topupAmount | number |  | No |
+| topupAmount | long |  | No |
 | topupCurrency | string |  | No |
 | topupProcessed | boolean |  | No |
 
@@ -1706,19 +1698,19 @@ Monzo Undocumented API
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | currency | string |  | No |
-| spendToday | number |  | No |
+| spendToday | long |  | No |
 
 <a name="apiNews"></a>**ApiNews**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| posts | [ object ] |  | No |
+| posts | [ [ApiNewsItem](#apiNewsItem) ] |  | No |
 
 <a name="apiNewsItem"></a>**ApiNewsItem**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| expires | date |  | No |
+| expires | dateTime |  | No |
 | id | string |  | No |
 | title | string |  | No |
 | uri | string |  | No |
@@ -1727,7 +1719,7 @@ Monzo Undocumented API
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| results | [ object ] |  | No |
+| results | [ [LegacyApiAddress](#legacyApiAddress) ] |  | No |
 
 <a name="apiProfile"></a>**ApiProfile**  
 
@@ -1771,7 +1763,7 @@ Monzo Undocumented API
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | after | integer |  | No |
-| events | [ object ] |  | No |
+| events | [ [c](#c) ] |  | No |
 | finished | boolean |  | No |
 | ineligible | boolean |  | No |
 | position | integer |  | No |
@@ -1787,7 +1779,7 @@ Monzo Undocumented API
 | country | string |  | No |
 | locality | string |  | No |
 | postalCode | string |  | No |
-| streetAddress | [ object ] |  | No |
+| streetAddress | [ string ] |  | No |
 
 <a name="notificationMessage"></a>**NotificationMessage**  
 
@@ -1801,8 +1793,6 @@ Monzo Undocumented API
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| descriptionResId | integer |  | No |
-| dueDiligenceLevel | string |  | No |
 
 <a name="a"></a>**a**  
 
@@ -1819,11 +1809,65 @@ Monzo Undocumented API
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 
+<a name="apiUploadContainer"></a>**ApiUploadContainer**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| fileUrl | string |  | No |
+| uploadUrl | string |  | No |
+
+<a name="contentType"></a>**ContentType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="fileType"></a>**FileType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="fileUpload"></a>**FileUpload**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| fileId | string |  | No |
+| uploadUrl | string |  | No |
+
+<a name="identityDocumentType"></a>**IdentityDocumentType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="identityVerification"></a>**IdentityVerification**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| allowPicker | boolean |  | No |
+| allowSystemCamera | boolean |  | No |
+| identityDocUploaded | boolean |  | No |
+| rejectionNote | string |  | No |
+| rejectionReasonCode | string |  | No |
+| selfieUploaded | boolean |  | No |
+| status | object | Unknown type: Status | No |
+
+<a name="legacyIdType"></a>**LegacyIdType**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="legacyKyc"></a>**LegacyKyc**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| evidenceReviewed | boolean |  | No |
+| evidenceSubmitted | boolean |  | No |
+| status | object | Unknown type: Status | No |
+
 <a name="apiAttachment"></a>**ApiAttachment**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| created | date |  | No |
+| created | dateTime |  | No |
 | externalId | string |  | No |
 | fileUrl | string |  | No |
 | id | string |  | No |
@@ -1843,31 +1887,19 @@ Monzo Undocumented API
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | appUri | string |  | No |
-| created | date |  | No |
+| created | dateTime |  | No |
 | externalId | string |  | No |
 | id | string |  | No |
 | isDismissable | boolean |  | No |
-| params | object | *TODO: inner class refs | No |
+| params | object | Unknown type: Params | No |
 | transaction | [ApiTransaction](#apiTransaction) |  | No |
 | type | string |  | No |
-| amount | number |  | No |
-| body | string |  | No |
-| currency | string |  | No |
-| imageUrl | string |  | No |
-| intervalEnd | date |  | No |
-| intervalStart | date |  | No |
-| intervalType | string |  | No |
-| kycRejectedCustomerMessage | string |  | No |
-| kycRejectedReason | string |  | No |
-| sddMigrationRejectionNote | string |  | No |
-| ticketId | string |  | No |
-| title | string |  | No |
 
 <a name="apiFeedResponse"></a>**ApiFeedResponse**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| items | [ object ] |  | No |
+| items | [ [ApiFeedItem](#apiFeedItem) ] |  | No |
 
 <a name="apiMerchant"></a>**ApiMerchant**  
 
@@ -1889,8 +1921,8 @@ Monzo Undocumented API
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | formatted | string |  | No |
-| latitude | number |  | No |
-| longitude | number |  | No |
+| latitude | double |  | No |
+| longitude | double |  | No |
 | shortFormatted | string |  | No |
 
 <a name="apiMetadata"></a>**ApiMetadata**  
@@ -1906,24 +1938,24 @@ Monzo Undocumented API
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| amount | number |  | No |
-| attachments | [ object ] |  | No |
+| amount | long |  | No |
+| attachments | [ [ApiAttachment](#apiAttachment) ] |  | No |
 | category | string |  | No |
 | counterparty | [ApiCounterparty](#apiCounterparty) |  | No |
-| created | date |  | No |
+| created | dateTime |  | No |
 | currency | string |  | No |
 | declineReason | string |  | No |
 | description | string |  | No |
 | id | string |  | No |
 | includeInSpending | boolean |  | No |
 | isLoad | boolean |  | No |
-| localAmount | number |  | No |
+| localAmount | long |  | No |
 | localCurrency | string |  | No |
 | merchant | [ApiMerchant](#apiMerchant) |  | No |
 | metadata | [ApiMetadata](#apiMetadata) |  | No |
 | scheme | string |  | No |
 | settled | string |  | No |
-| updated | date |  | No |
+| updated | dateTime |  | No |
 
 <a name="apiPinSms"></a>**ApiPinSms**  
 
@@ -1931,11 +1963,54 @@ Monzo Undocumented API
 | ---- | ---- | ----------- | -------- |
 | smsBlocked | boolean |  | No |
 
+<a name="signUpSource"></a>**SignUpSource**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+
+<a name="action"></a>**Action**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| params | object | Unknown type: Params | No |
+| title | string |  | No |
+| type | string |  | No |
+
+<a name="content"></a>**Content**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| sections | [ [Section](#section) ] |  | No |
+
+<a name="searchQuery"></a>**SearchQuery**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| model | string |  | No |
+| query | string |  | No |
+| sections | [ [Section](#section) ] |  | No |
+
+<a name="section"></a>**Section**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| title | string |  | No |
+| topics | [ [Topic](#topic) ] |  | No |
+
+<a name="topic"></a>**Topic**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| actions | [ [Action](#action) ] |  | No |
+| content | string |  | No |
+| id | string |  | No |
+| title | string |  | No |
+
 <a name="serviceStatus"></a>**ServiceStatus**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| incidents | [ object ] |  | No |
+| incidents | [ [ServiceStatusIncident](#serviceStatusIncident) ] |  | No |
 
 <a name="serviceStatusIncident"></a>**ServiceStatusIncident**  
 
@@ -1946,115 +2021,6 @@ Monzo Undocumented API
 | name | string |  | No |
 | shortlink | string |  | No |
 | status | string |  | No |
-
-<a name="action"></a>**Action**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| params | object | *TODO: inner class refs | No |
-| title | string |  | No |
-| type | string |  | No |
-| url | string |  | No |
-
-<a name="content"></a>**Content**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| sections | [ object ] |  | No |
-
-<a name="searchQuery"></a>**SearchQuery**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| model | string |  | No |
-| query | string |  | No |
-| sections | [ object ] |  | No |
-
-<a name="section"></a>**Section**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| title | string |  | No |
-| topics | [ object ] |  | No |
-
-<a name="topic"></a>**Topic**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| actions | [ object ] |  | No |
-| content | string |  | No |
-| id | string |  | No |
-| title | string |  | No |
-
-<a name="signUpSource"></a>**SignUpSource**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| apiValue | string |  | No |
-
-<a name="addStripeCardRequest"></a>**AddStripeCardRequest**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| accountId | string |  | No |
-| iin | string |  | No |
-| save | boolean |  | No |
-| stripeToken | string |  | No |
-
-<a name="apiStripeCard"></a>**ApiStripeCard**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| brand | string |  | No |
-| endDate | string |  | No |
-| funding | string |  | No |
-| lastFour | string |  | No |
-| stripeCardId | string |  | No |
-
-<a name="apiStripeCards"></a>**ApiStripeCards**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| cards | [ object ] |  | No |
-
-<a name="apiThreeDsResponse"></a>**ApiThreeDsResponse**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| decision | string |  | No |
-| redirectUrl | string |  | No |
-| required | boolean |  | No |
-| status | string |  | No |
-| stripeSource | string |  | No |
-
-<a name="apiTopUpLimits"></a>**ApiTopUpLimits**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| maxLoad | number |  | No |
-| minLoad | number |  | No |
-
-<a name="threeDSecureRequest"></a>**ThreeDSecureRequest**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| accountId | string |  | No |
-| amount | number |  | No |
-| currency | string |  | No |
-| isInitial | boolean |  | No |
-| returnUrl | string |  | No |
-| stripeCardId | string |  | No |
-
-<a name="topUpRequest"></a>**TopUpRequest**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| accountId | string |  | No |
-| amount | number |  | No |
-| currency | string |  | No |
-| isInitial | boolean |  | No |
-| stripeSource | string |  | No |
-| threeDSecureDecision | string |  | No |
 
 <a name="data"></a>**Data**  
 
@@ -2082,7 +2048,7 @@ Monzo Undocumented API
 | fallback | boolean |  | No |
 | feedback | string |  | No |
 | fingerprintAuth | string |  | No |
-| firstSampleDelta | number |  | No |
+| firstSampleDelta | long |  | No |
 | firstTime | boolean |  | No |
 | from | string |  | No |
 | gpsAdid | string |  | No |
@@ -2105,7 +2071,7 @@ Monzo Undocumented API
 | referrer | string |  | No |
 | reportMonth | string |  | No |
 | sampleError | boolean |  | No |
-| secondSampleDelta | number |  | No |
+| secondSampleDelta | long |  | No |
 | selfieDone | boolean |  | No |
 | splitWith | string |  | No |
 | topicId | string |  | No |
@@ -2121,8 +2087,6 @@ Monzo Undocumented API
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| events | [ object ] |  | No |
-| value | string |  | No |
 
 <a name="impressionEvent"></a>**ImpressionEvent**  
 
@@ -2132,67 +2096,66 @@ Monzo Undocumented API
 | name | string |  | No |
 | timestamp | string |  | No |
 
-<a name="apiUploadContainer"></a>**ApiUploadContainer**  
+<a name="addStripeCardRequest"></a>**AddStripeCardRequest**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| fileUrl | string |  | No |
-| uploadUrl | string |  | No |
+| accountId | string |  | No |
+| iin | string |  | No |
+| save | boolean |  | No |
+| stripeToken | string |  | No |
 
-<a name="contentType"></a>**ContentType**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| mimeType | string |  | No |
-
-<a name="fileType"></a>**FileType**  
+<a name="apiStripeCard"></a>**ApiStripeCard**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| apiValue | string |  | No |
+| brand | string |  | No |
+| endDate | string |  | No |
+| funding | string |  | No |
+| lastFour | string |  | No |
+| stripeCardId | string |  | No |
 
-<a name="fileUpload"></a>**FileUpload**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| fileId | string |  | No |
-| uploadUrl | string |  | No |
-
-<a name="identityDocumentType"></a>**IdentityDocumentType**  
+<a name="apiStripeCards"></a>**ApiStripeCards**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| apiValue | string |  | No |
-| displayNameRes | integer |  | No |
-| isBackRequired | boolean |  | No |
+| cards | [ [ApiStripeCard](#apiStripeCard) ] |  | No |
 
-<a name="identityVerification"></a>**IdentityVerification**  
+<a name="apiThreeDsResponse"></a>**ApiThreeDsResponse**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| allowPicker | boolean |  | No |
-| allowSystemCamera | boolean |  | No |
-| identityDocUploaded | boolean |  | No |
-| rejectionNote | string |  | No |
-| rejectionReasonCode | string |  | No |
-| selfieUploaded | boolean |  | No |
-| status | object | *TODO: inner class refs | No |
+| decision | string |  | No |
+| redirectUrl | string |  | No |
+| required | boolean |  | No |
+| status | string |  | No |
+| stripeSource | string |  | No |
 
-<a name="whenMappings"></a>**WhenMappings**  
+<a name="apiTopUpLimits"></a>**ApiTopUpLimits**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
+| maxLoad | float |  | No |
+| minLoad | float |  | No |
 
-<a name="legacyIdType"></a>**LegacyIdType**  
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| type | string |  | No |
-
-<a name="legacyKyc"></a>**LegacyKyc**  
+<a name="threeDSecureRequest"></a>**ThreeDSecureRequest**  
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| evidenceReviewed | boolean |  | No |
-| evidenceSubmitted | boolean |  | No |
-| status | object | *TODO: inner class refs | No |
+| accountId | string |  | No |
+| amount | long |  | No |
+| currency | string |  | No |
+| isInitial | boolean |  | No |
+| returnUrl | string |  | No |
+| stripeCardId | string |  | No |
+
+<a name="topUpRequest"></a>**TopUpRequest**  
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accountId | string |  | No |
+| amount | long |  | No |
+| currency | string |  | No |
+| isInitial | boolean |  | No |
+| stripeSource | string |  | No |
+| threeDSecureDecision | string |  | No |

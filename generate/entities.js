@@ -9,6 +9,9 @@ const yaml = require('js-yaml');
 const _ = require('lodash');
 const parser = require('java-parser');
 
+const loudRejection = require('loud-rejection');
+loudRejection();
+
 let base = 'apk/co/uk/getmondo/api/model/';
 
 (async () => {
@@ -17,8 +20,8 @@ let base = 'apk/co/uk/getmondo/api/model/';
 
     let files = await recursive(base);
     files = files.map(f => {
-        let name = /model\/(.*)\.java/.exec(f);
-        let c = /([a-zA-Z0-9]+)\.java$/.exec(f);
+        let name = /model\/(.*)\.(java|kt)/.exec(f);
+        let c = /([a-zA-Z0-9]+)\.(java|kt)$/.exec(f);
 
         return {
             path: f,
@@ -28,9 +31,91 @@ let base = 'apk/co/uk/getmondo/api/model/';
         };
     })
 
+    console.log(files);
+
     let byClass = _.keyBy(files, 'class');
 
+
     let entities = {};
+
+    function resolveType(file, type, name) {
+        let typematches;
+        if (typematches = /(.*)<(.*)>/.exec(type)) {
+
+            console.log('hmm', type, typematches);
+
+            let def = resolveType(file, typematches[1], name);
+            def.items = resolveType(file, typematches[2], name);
+            return def;
+        }
+        else {
+            return resolveBasicType(file, type, name);
+        }
+
+    }
+
+    function resolveBasicType(file, type, name) {
+        let ltype = type.toLowerCase();
+
+        let def = {
+            type: ltype
+        };
+
+        //array, boolean, integer, null, number, object, string
+        if (['float', 'double'].indexOf(ltype) !== -1) {
+            def.type = 'number';
+            def.format = ltype;
+        }
+        else if (ltype == 'short') {
+            def.type = 'integer';
+            def.format = 'int16';
+        }
+        else if (['int', 'integer'].indexOf(ltype) !== -1) {
+            def.type = 'integer';
+            def.format = 'int32';
+        }
+        else if (ltype == 'long') {
+            def.type = 'integer';
+            def.format = 'int64';
+        }
+        else if (ltype == 'string') {
+            def.type = 'string';
+        }
+        else if (ltype == 'boolean') {
+            def.type = 'boolean';
+        }
+        else if (ltype == 'list') {
+            def.type = 'array';
+            def.items = {
+                type: 'object'
+            }
+        }
+        else if (['g', 'date'].indexOf(ltype) !== -1) {
+            def.type = 'string';
+            def.format = "date-time";
+        }
+        else {
+
+            if (type.split('.')[0] == file['class']) {
+                //this is a self reference, nothing we can do here, yet..
+                def.type = 'object';
+                def.description = '*TODO: inner class refs';
+            }
+            else {
+                // def.obj = matches[1];
+                if (byClass[type]) {
+                    delete def.type;
+                    def.$ref = '#/definitions/'+byClass[type].class
+                }
+                else {
+                    def.type = 'object';
+                    def.description = 'Unknown type: '+type;
+                }
+            }
+
+        }
+        return def;
+    }
 
     for (let file of files) {
         // console.log(file);
@@ -51,54 +136,8 @@ let base = 'apk/co/uk/getmondo/api/model/';
         while (matches = re.exec(contents)) {
             // console.log(matches[1], matches[2]);
 
-            let def = {
-                type: matches[1]
-            };
+            def = resolveType(file, matches[1], matches[2]);
 
-            //array, boolean, integer, null, number, object, string
-            if (['float', 'double', 'short', 'long'].indexOf(matches[1].toLowerCase()) !== -1) {
-                def.type = 'number';
-            }
-            else if (['int', 'integer'].indexOf(matches[1].toLowerCase()) !== -1) {
-                def.type = 'integer';
-            }
-            else if (matches[1].toLowerCase() == 'string') {
-                def.type = 'string';
-            }
-            else if (matches[1].toLowerCase() == 'boolean') {
-                def.type = 'boolean';
-            }
-            else if (matches[1] == 'List') {
-                def.type = 'array';
-                def.items = {
-                    type: 'object'
-                }
-            }
-            else if (['g', 'Date'].indexOf(matches[1]) !== -1) {
-                def.type = 'string';
-                def.format = "date";
-            }
-            else {
-
-                console.log(matches[1], matches[1].split('.')[0], file['class']);
-                if (matches[1].split('.')[0] == file['class']) {
-                    //this is a self reference, nothing we can do here, yet..
-                    def.type = 'object';
-                    def.description = '*TODO: inner class refs';
-                }
-                else {
-                    // def.obj = matches[1];
-                    if (byClass[matches[1]]) {
-                        delete def.type;
-                        def.$ref = '#/definitions/'+byClass[matches[1]].class
-                    }
-                    else {
-                        def.type = 'object';
-                        def.description = 'Unknown type: '+matches[1];
-                    }
-                }
-
-            }
 
 
             entity.properties[matches[2]] = def;
