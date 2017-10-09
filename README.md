@@ -87,6 +87,10 @@
 		<td>GET</td>
 		<td>feed</td>
 	</tr>
+		<tr>
+		<td>GET</td>
+		<td>feed/{id}</td>
+	</tr>
 	<tr>
 		<td>DELETE</td>
 		<td>feed/{id}</td>
