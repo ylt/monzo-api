@@ -125,6 +125,10 @@
 	</tr>
 	<tr>
 		<td>GET</td>
+		<td>inbound-p2p/username/{p2p_username}</td>
+	</tr>
+	<tr>
+		<td>GET</td>
 		<td>intercom/tokens/{intercom_app_id}</td>
 	</tr>
 	<tr>
@@ -241,6 +245,14 @@
 	</tr>
 	<tr>
 		<td>POST</td>
+		<td>stripe/inbound_p2p/charge</td>
+	</tr>
+	<tr>
+		<td>POST</td>
+		<td>stripe/inbound_p2p/create</td>
+	</tr>
+	<tr>
+		<td>POST</td>
 		<td>stripe/three_d_secure</td>
 	</tr>
 	<tr>
@@ -282,6 +294,10 @@
 	<tr>
 		<td>PATCH</td>
 		<td>transactions/{transaction_id}</td>
+	</tr>
+	<tr>
+		<td>GET</td>
+		<td>user-images/profile_picture/{user_id}</td>
 	</tr>
 	<tr>
 		<td>PUT</td>
